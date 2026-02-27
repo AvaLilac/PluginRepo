@@ -4,7 +4,7 @@
     window.__AVIA_OFFICIAL_REPO_LOADED__ = true;
 
     const STORAGE_KEY = "avia_plugins";
-    const OFFICIAL_REPO_URL = "https://raw.githubusercontent.com/AvaLilac/PluginRepo/main/pluginrepo.js";
+    const OFFICIAL_REPO_URL = "https://raw.githubusercontent.com/AvaLilac/PluginRepo/refs/heads/main/pluginrepobackend";
 
     const getPlugins = () => JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
     const setPlugins = (data) => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
@@ -55,11 +55,6 @@
     function renderRepo(data) {
         repoContent.innerHTML = "";
 
-        if (!data || !data.plugins) {
-            repoContent.innerHTML = "Invalid repo data.";
-            return;
-        }
-
         data.plugins.forEach(repoPlugin => {
 
             const row = document.createElement("div");
@@ -78,7 +73,7 @@
             title.style.fontWeight = "500";
 
             const desc = document.createElement("div");
-            desc.textContent = repoPlugin.description || "";
+            desc.textContent = repoPlugin.description;
             desc.style.fontSize = "12px";
             desc.style.opacity = "0.7";
 
@@ -113,23 +108,16 @@
 
     function refetchRepo() {
         if (!repoContent) return;
-
         repoContent.innerHTML = "Loading...";
-
-        const url = OFFICIAL_REPO_URL + "?t=" + Date.now();
 
         function electronFetch() {
             try {
                 const https = require("https");
-                https.get(url, res => {
+                https.get(OFFICIAL_REPO_URL, res => {
                     let data = "";
                     res.on("data", chunk => data += chunk);
                     res.on("end", () => {
-                        try {
-                            renderRepo(JSON.parse(data));
-                        } catch {
-                            repoContent.innerHTML = "Invalid repo JSON.";
-                        }
+                        renderRepo(JSON.parse(data));
                     });
                 }).on("error", () => {
                     repoContent.innerHTML = "Failed to fetch repo.";
@@ -140,15 +128,9 @@
         }
 
         try {
-            fetch(url, { cache: "no-store" })
-                .then(res => res.text())
-                .then(text => {
-                    try {
-                        renderRepo(JSON.parse(text));
-                    } catch {
-                        repoContent.innerHTML = "Invalid repo JSON.";
-                    }
-                })
+            fetch(OFFICIAL_REPO_URL)
+                .then(res => res.json())
+                .then(data => renderRepo(data))
                 .catch(() => electronFetch());
         } catch {
             electronFetch();
