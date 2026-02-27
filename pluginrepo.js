@@ -1,247 +1,261 @@
 (function () {
 
-if (window.__AVIA_OFFICIAL_REPO__) return;
-window.__AVIA_OFFICIAL_REPO__ = true;
+    if (window.__AVIA_OFFICIAL_REPO_LOADED__) return;
+    window.__AVIA_OFFICIAL_REPO_LOADED__ = true;
 
-const STORAGE_KEY = "avia_plugins";
-const BACKEND_FILE = "pluginrepobackend.js";
+    const STORAGE_KEY = "avia_plugins";
+    const OFFICIAL_REPO_URL = "https://raw.githubusercontent.com/AvaLilac/PluginRepo/main/pluginrepo.js";
 
-let repoWindow = null;
-let repoContent = null;
+    const getPlugins = () => JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    const setPlugins = (data) => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
-function getInstalled() {
-    try {
-        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    } catch {
-        return [];
-    }
-}
+    let repoContent;
 
-function isInstalled(link) {
-    return getInstalled().some(p => p.link === link);
-}
-
-function triggerManagerRefresh() {
-    const refreshBtn = document.querySelector("[data-avia-refresh]");
-    if (refreshBtn) refreshBtn.click();
-    window.dispatchEvent(new Event("storage"));
-}
-
-function installPlugin(plugin) {
-    const installed = getInstalled();
-    if (installed.some(p => p.link === plugin.link)) return;
-
-    installed.push(plugin);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(installed));
-
-    triggerManagerRefresh();
-    renderRepo(window.__AVIA_REPO_CACHE__);
-}
-
-function uninstallPlugin(link) {
-    const installed = getInstalled().filter(p => p.link !== link);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(installed));
-
-    triggerManagerRefresh();
-    renderRepo(window.__AVIA_REPO_CACHE__);
-}
-
-function safeParse(text) {
-    try {
-        if (!text) return null;
-        text = text.replace(/^\uFEFF/, "");
-        return JSON.parse(text);
-    } catch {
-        return null;
-    }
-}
-
-function loadBackendLocal() {
-    try {
-        if (typeof require === "undefined") return null;
-
-        const fs = require("fs");
-        const path = require("path");
-
-        const possiblePaths = [
-            path.join(__dirname, BACKEND_FILE),
-            path.join(process.cwd(), BACKEND_FILE)
-        ];
-
-        for (const p of possiblePaths) {
-            if (fs.existsSync(p)) {
-                const raw = fs.readFileSync(p, "utf8");
-                return safeParse(raw);
-            }
-        }
-
-        return null;
-    } catch {
-        return null;
-    }
-}
-
-async function loadBackendBrowser() {
-    try {
-        const res = await fetch("./" + BACKEND_FILE + "?t=" + Date.now(), {
-            cache: "no-store"
-        });
-        const text = await res.text();
-        return safeParse(text);
-    } catch {
-        return null;
-    }
-}
-
-async function refetchRepo() {
-    if (!repoContent) return;
-
-    repoContent.innerHTML = "Loading...";
-
-    let data = loadBackendLocal();
-
-    if (!data) {
-        data = await loadBackendBrowser();
+    function triggerManagerRefresh() {
+        const panel = document.getElementById("avia-plugins-panel");
+        if (!panel) return;
+        const refreshBtn = Array.from(panel.querySelectorAll("button"))
+            .find(b => b.textContent.trim() === "Refresh");
+        if (refreshBtn) refreshBtn.click();
     }
 
-    if (!data || !data.plugins) {
-        repoContent.innerHTML = "Invalid repo JSON.";
-        return;
-    }
-
-    window.__AVIA_REPO_CACHE__ = data;
-    renderRepo(data);
-}
-
-function renderRepo(data) {
-    if (!repoContent) return;
-
-    repoContent.innerHTML = "";
-
-    data.plugins.forEach(plugin => {
-
-        const card = document.createElement("div");
-        card.style.padding = "10px";
-        card.style.marginBottom = "10px";
-        card.style.border = "1px solid var(--md-sys-color-outline)";
-        card.style.borderRadius = "8px";
-
-        const title = document.createElement("div");
-        title.textContent = plugin.name;
-        title.style.fontWeight = "bold";
-
-        const author = document.createElement("div");
-        author.textContent = "by " + (plugin.author || "Unknown");
-        author.style.fontSize = "12px";
-        author.style.opacity = "0.7";
-
-        const desc = document.createElement("div");
-        desc.textContent = plugin.description;
-        desc.style.margin = "6px 0";
+    function injectButton() {
+        const panel = document.getElementById("avia-plugins-panel");
+        if (!panel) return;
+        if (document.getElementById("avia-official-repo-btn")) return;
 
         const btn = document.createElement("button");
-        btn.style.padding = "6px 10px";
-        btn.style.cursor = "pointer";
+        btn.id = "avia-official-repo-btn";
+        btn.textContent = "Official Repo";
+        btn.style.position = "absolute";
+        btn.style.left = "16px";
+        btn.style.bottom = "16px";
+        btn.onclick = openWindow;
 
-        if (isInstalled(plugin.link)) {
-            btn.textContent = "Remove";
-            btn.onclick = () => uninstallPlugin(plugin.link);
-        } else {
-            btn.textContent = "Install";
-            btn.onclick = () => installPlugin(plugin);
-        }
-
-        card.appendChild(title);
-        card.appendChild(author);
-        card.appendChild(desc);
-        card.appendChild(btn);
-
-        repoContent.appendChild(card);
-    });
-}
-
-function createRepoWindow() {
-    if (repoWindow) {
-        repoWindow.style.display = "block";
-        return;
+        panel.appendChild(btn);
     }
 
-    repoWindow = document.createElement("div");
-    repoWindow.style.position = "fixed";
-    repoWindow.style.top = "50%";
-    repoWindow.style.left = "50%";
-    repoWindow.style.transform = "translate(-50%, -50%)";
-    repoWindow.style.width = "500px";
-    repoWindow.style.height = "600px";
-    repoWindow.style.background = "var(--md-sys-color-surface-container)";
-    repoWindow.style.border = "1px solid var(--md-sys-color-outline)";
-    repoWindow.style.borderRadius = "12px";
-    repoWindow.style.display = "flex";
-    repoWindow.style.flexDirection = "column";
-    repoWindow.style.zIndex = "999999";
+    function updateInstallStates() {
+        if (!repoContent) return;
+        const installed = getPlugins().map(p => p.url);
+        repoContent.querySelectorAll("[data-link]").forEach(row => {
+            const link = row.getAttribute("data-link");
+            const btn = row.querySelector("button.install-btn");
+            if (!btn) return;
+            if (installed.includes(link)) {
+                btn.textContent = "Installed";
+                btn.disabled = true;
+            } else {
+                btn.textContent = "Install";
+                btn.disabled = false;
+            }
+        });
+    }
 
-    const header = document.createElement("div");
-    header.style.padding = "10px";
-    header.style.fontWeight = "bold";
-    header.style.display = "flex";
-    header.style.justifyContent = "space-between";
-    header.textContent = "Official Repo";
+    function renderRepo(data) {
+        repoContent.innerHTML = "";
 
-    const close = document.createElement("button");
-    close.textContent = "X";
-    close.onclick = () => repoWindow.style.display = "none";
-    header.appendChild(close);
-
-    repoContent = document.createElement("div");
-    repoContent.style.flex = "1";
-    repoContent.style.overflow = "auto";
-    repoContent.style.padding = "10px";
-
-    const refetch = document.createElement("button");
-    refetch.textContent = "Refetch";
-    refetch.style.position = "absolute";
-    refetch.style.bottom = "10px";
-    refetch.style.left = "10px";
-    refetch.onclick = refetchRepo;
-
-    repoWindow.appendChild(header);
-    repoWindow.appendChild(repoContent);
-    repoWindow.appendChild(refetch);
-
-    document.body.appendChild(repoWindow);
-
-    refetchRepo();
-}
-
-function injectButtonIntoManager() {
-    const interval = setInterval(() => {
-        const panel = document.querySelector("[data-avia-plugin-panel]");
-        if (!panel) return;
-
-        if (panel.querySelector("[data-avia-official-repo-btn]")) {
-            clearInterval(interval);
+        if (!data || !data.plugins) {
+            repoContent.innerHTML = "Invalid repo data.";
             return;
         }
 
-        const btn = document.createElement("button");
-        btn.textContent = "Official Repo";
-        btn.dataset.aviaOfficialRepoBtn = "true";
-        btn.style.position = "absolute";
-        btn.style.bottom = "10px";
-        btn.style.left = "10px";
-        btn.onclick = createRepoWindow;
+        data.plugins.forEach(repoPlugin => {
 
-        panel.appendChild(btn);
-        clearInterval(interval);
-    }, 500);
-}
+            const row = document.createElement("div");
+            row.style.display = "flex";
+            row.style.justifyContent = "space-between";
+            row.style.alignItems = "center";
+            row.style.marginBottom = "12px";
+            row.setAttribute("data-link", repoPlugin.link);
 
-window.addEventListener("storage", () => {
-    if (window.__AVIA_REPO_CACHE__) {
-        renderRepo(window.__AVIA_REPO_CACHE__);
+            const left = document.createElement("div");
+            left.style.display = "flex";
+            left.style.flexDirection = "column";
+
+            const title = document.createElement("div");
+            title.textContent = `${repoPlugin.name} — by ${repoPlugin.author || "Unknown"}`;
+            title.style.fontWeight = "500";
+
+            const desc = document.createElement("div");
+            desc.textContent = repoPlugin.description || "";
+            desc.style.fontSize = "12px";
+            desc.style.opacity = "0.7";
+
+            left.appendChild(title);
+            left.appendChild(desc);
+
+            const installBtn = document.createElement("button");
+            installBtn.className = "install-btn";
+
+            installBtn.onclick = () => {
+                const plugins = getPlugins();
+                if (!plugins.some(p => p.url === repoPlugin.link)) {
+                    plugins.push({
+                        name: repoPlugin.name,
+                        url: repoPlugin.link,
+                        enabled: false
+                    });
+                    setPlugins(plugins);
+                    window.dispatchEvent(new Event("avia-plugin-list-changed"));
+                    triggerManagerRefresh();
+                    updateInstallStates();
+                }
+            };
+
+            row.appendChild(left);
+            row.appendChild(installBtn);
+            repoContent.appendChild(row);
+        });
+
+        updateInstallStates();
     }
-});
 
-injectButtonIntoManager();
+    function refetchRepo() {
+        if (!repoContent) return;
+
+        repoContent.innerHTML = "Loading...";
+
+        const url = OFFICIAL_REPO_URL + "?t=" + Date.now();
+
+        function electronFetch() {
+            try {
+                const https = require("https");
+                https.get(url, res => {
+                    let data = "";
+                    res.on("data", chunk => data += chunk);
+                    res.on("end", () => {
+                        try {
+                            renderRepo(JSON.parse(data));
+                        } catch {
+                            repoContent.innerHTML = "Invalid repo JSON.";
+                        }
+                    });
+                }).on("error", () => {
+                    repoContent.innerHTML = "Failed to fetch repo.";
+                });
+            } catch {
+                repoContent.innerHTML = "Failed to fetch repo.";
+            }
+        }
+
+        try {
+            fetch(url, { cache: "no-store" })
+                .then(res => res.text())
+                .then(text => {
+                    try {
+                        renderRepo(JSON.parse(text));
+                    } catch {
+                        repoContent.innerHTML = "Invalid repo JSON.";
+                    }
+                })
+                .catch(() => electronFetch());
+        } catch {
+            electronFetch();
+        }
+    }
+
+    function openWindow() {
+
+        if (document.getElementById("avia-official-repo-window")) return;
+
+        const panel = document.createElement("div");
+        panel.id = "avia-official-repo-window";
+        panel.style.position = "fixed";
+        panel.style.bottom = "24px";
+        panel.style.right = "24px";
+        panel.style.width = "520px";
+        panel.style.height = "460px";
+        panel.style.background = "var(--md-sys-color-surface, #1e1e1e)";
+        panel.style.color = "var(--md-sys-color-on-surface, #fff)";
+        panel.style.borderRadius = "16px";
+        panel.style.boxShadow = "0 8px 28px rgba(0,0,0,0.35)";
+        panel.style.zIndex = "1000000";
+        panel.style.display = "flex";
+        panel.style.flexDirection = "column";
+        panel.style.overflow = "hidden";
+        panel.style.border = "1px solid rgba(255,255,255,0.08)";
+        panel.style.backdropFilter = "blur(12px)";
+
+        const header = document.createElement("div");
+        header.textContent = "Official Repo";
+        header.style.padding = "14px 16px";
+        header.style.fontWeight = "600";
+        header.style.fontSize = "14px";
+        header.style.background = "var(--md-sys-color-surface-container, rgba(255,255,255,0.04))";
+        header.style.borderBottom = "1px solid rgba(255,255,255,0.08)";
+        header.style.cursor = "move";
+
+        const closeBtn = document.createElement("div");
+        closeBtn.textContent = "✕";
+        closeBtn.style.position = "absolute";
+        closeBtn.style.top = "12px";
+        closeBtn.style.right = "16px";
+        closeBtn.style.cursor = "pointer";
+        closeBtn.style.opacity = "0.7";
+        closeBtn.onclick = () => panel.remove();
+
+        repoContent = document.createElement("div");
+        repoContent.style.flex = "1";
+        repoContent.style.overflow = "auto";
+        repoContent.style.padding = "16px";
+        repoContent.style.paddingBottom = "70px";
+
+        const footer = document.createElement("div");
+        footer.style.position = "absolute";
+        footer.style.left = "0";
+        footer.style.right = "0";
+        footer.style.bottom = "0";
+        footer.style.height = "60px";
+        footer.style.display = "flex";
+        footer.style.alignItems = "center";
+        footer.style.paddingLeft = "16px";
+        footer.style.background = "linear-gradient(to top, rgba(0,0,0,0.6), transparent)";
+
+        const refetchBtn = document.createElement("button");
+        refetchBtn.textContent = "Refetch";
+        refetchBtn.onclick = () => {
+            refetchRepo();
+            updateInstallStates();
+        };
+
+        footer.appendChild(refetchBtn);
+
+        panel.appendChild(header);
+        panel.appendChild(closeBtn);
+        panel.appendChild(repoContent);
+        panel.appendChild(footer);
+        document.body.appendChild(panel);
+
+        enableDrag(panel, header);
+
+        refetchRepo();
+    }
+
+    function enableDrag(panel, header) {
+        let isDragging = false, offsetX, offsetY;
+        header.addEventListener("mousedown", e => {
+            isDragging = true;
+            offsetX = e.clientX - panel.offsetLeft;
+            offsetY = e.clientY - panel.offsetTop;
+        });
+        document.addEventListener("mouseup", () => isDragging = false);
+        document.addEventListener("mousemove", e => {
+            if (!isDragging) return;
+            panel.style.left = (e.clientX - offsetX) + "px";
+            panel.style.top = (e.clientY - offsetY) + "px";
+            panel.style.right = "auto";
+            panel.style.bottom = "auto";
+        });
+    }
+
+    window.addEventListener("avia-plugin-list-changed", () => {
+        if (document.getElementById("avia-official-repo-window")) {
+            updateInstallStates();
+        }
+    });
+
+    const observer = new MutationObserver(() => injectButton());
+    observer.observe(document.body, { childList: true, subtree: true });
 
 })();
