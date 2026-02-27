@@ -4,7 +4,7 @@
     window.__AVIA_OFFICIAL_REPO_LOADED__ = true;
 
     const STORAGE_KEY = "avia_plugins";
-    const OFFICIAL_REPO_URL = "https://raw.githubusercontent.com/AvaLilac/PluginRepo/refs/heads/main/pluginrepobackend";
+    const OFFICIAL_REPO_URL = "https://avalilac.github.io/PluginRepo/pluginrepobackend.js";
 
     const getPlugins = () => JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
     const setPlugins = (data) => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
