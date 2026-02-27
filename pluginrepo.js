@@ -40,7 +40,7 @@
         const installed = getPlugins().map(p => p.url);
         repoContent.querySelectorAll("[data-link]").forEach(row => {
             const link = row.getAttribute("data-link");
-            const btn = row.querySelector("button");
+            const btn = row.querySelector("button.install-btn");
             if (!btn) return;
             if (installed.includes(link)) {
                 btn.textContent = "Installed";
@@ -81,6 +81,7 @@
             left.appendChild(desc);
 
             const installBtn = document.createElement("button");
+            installBtn.className = "install-btn";
 
             installBtn.onclick = () => {
                 const plugins = getPlugins();
@@ -93,6 +94,7 @@
                     setPlugins(plugins);
                     window.dispatchEvent(new Event("avia-plugin-list-changed"));
                     triggerManagerRefresh();
+                    updateInstallStates();
                 }
             };
 
@@ -106,9 +108,11 @@
 
     function refetchRepo() {
         if (!repoContent) return;
+        repoContent.innerHTML = "Loading...";
         fetch(OFFICIAL_REPO_URL)
             .then(res => res.json())
-            .then(data => renderRepo(data));
+            .then(data => renderRepo(data))
+            .catch(() => repoContent.innerHTML = "Failed to load official repo.");
     }
 
     function openWindow() {
@@ -155,11 +159,23 @@
         repoContent.style.flex = "1";
         repoContent.style.overflow = "auto";
         repoContent.style.padding = "16px";
-        repoContent.textContent = "Loading...";
+
+        const footer = document.createElement("div");
+        footer.style.padding = "12px 16px";
+        footer.style.borderTop = "1px solid rgba(255,255,255,0.08)";
+        footer.style.display = "flex";
+        footer.style.justifyContent = "flex-start";
+
+        const refetchBtn = document.createElement("button");
+        refetchBtn.textContent = "Refetch";
+        refetchBtn.onclick = () => refetchRepo();
+
+        footer.appendChild(refetchBtn);
 
         panel.appendChild(header);
         panel.appendChild(closeBtn);
         panel.appendChild(repoContent);
+        panel.appendChild(footer);
         document.body.appendChild(panel);
 
         enableDrag(panel, header);
