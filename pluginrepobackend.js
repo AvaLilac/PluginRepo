@@ -23,6 +23,12 @@
       "author": "AvaLilac",
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/ForceApparence.js",
       "description": "Keeps the Appearance label in English so Avia Client settings continue working properly."
+    },
+    {
+      "name": "Translate",
+      "author": "AvaLilac",
+      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/Translate.js",
+      "description": "Translates your messages and other users messages into whatever language you choose"
     }
   ]
 }
