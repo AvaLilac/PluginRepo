@@ -86,9 +86,9 @@
     },
     {
       "name": "Masquerade",
-      "author": "AvaLilac",
+      "author": "AvaLilac x 0simp",
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/masquerade.js",
-      "description": "Exactly what the name says. Allows you to change your pfp/avatar before sending a message without modifying your profile. Also modified by   to add the ability to impersonate anyone by clicking onto their profile, clicking the 3 dots. Then clicking impersonate."
+      "description": "Exactly what the name says. Allows you to change your pfp/avatar before sending a message without modifying your profile. has the ability to impersonate anyone by clicking onto their profile, clicking the 3 dots. Then clicking impersonate."
     }
   ]
 }
