@@ -73,10 +73,10 @@
       "description": "Adds a button to non-image/video attachments to copy the attachment link"
     },
     {
-      "name": "AddToFavourites",
+      "name": "BetterFavourites",
       "author": "0simp",
-      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/AddToFavourites.js",
-      "description": "Adds a button to the image viewer to add the image to favourites. Currently no support for adding a custom title because I'm too stupid to figure out how to do it but I might add it in the future. Also for some reason the image only shows up in favourites after you refresh, no fucking clue why that is."
+      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/BetterFavourites.js",
+      "description": "Improves avia's built in favourites system by adding a button to the image viewer to add the image to favourites, a refresh button to the favourites panel (click to make images/gifs added via the add favourites button show up) and making clicking on an image/gif put the link into the chat bar instead of copying it to the clipboard. This plugin is just a combination of AddToFavourites,FavsToChat and a new refresh button."
     },
     {
       "name": "Avia Server Button",
