@@ -89,6 +89,42 @@
       "author": "AvaLilac x 0simp",
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/masquerade.js",
       "description": "Exactly what the name says. Allows you to change your pfp/avatar before sending a message without modifying your profile. has the ability to impersonate anyone by clicking onto their profile, clicking the 3 dots. Then clicking impersonate."
+    },
+    {
+      "name": "FavsToChat",
+      "author": "0simp",
+      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/FavsToChat.js",
+      "description": "Makes clicking an image/gif in the favourites panel put the link in the chat bar instead of copying it to the clipboard"
+    },
+    {
+      "name": "Gradient roles",
+      "author": "AvaLilac",
+      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/GradientRoles.js",
+      "description": "Create Roles with gradients or modify existing roles to add gradients    WARNING THIS IS A TOKEN GRABBER When creating roles you need to provide your user token or else you aren't able to create a role THIS plugin grabs the token for you so you dont have to grab it every time.    If you do not feel comfortable Using this plugin because it grabs your token. Then you can either look through the code itself as its open source. Or just don't use it in general"
+    },
+    {
+      "name": "Headliner",
+      "author": "AvaLilac",
+      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/headliner.js",
+      "description": "DESKTOP ONLY. The Plugin version of the headliner CSS.Found In Desktop settings. You can modify Its settings by just clicking that gear icon on the button"
+    },
+    {
+      "name": "EmojiSounds",
+      "author": "0simp",
+      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/EmojiSounds.js",
+      "description": "Allows you to set sounds to be played when certain emojis are sent in chat. After enabling the plugin, go into your user settings and click on the button that says '(Avia) Emoji Sounds Settings'. Then, paste the emoji and the direct link to the sound you want in the appropriate boxes."
+    },
+    {
+      "name": "Devtools",
+      "author": "AvaLilac",
+      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/ConsoleDevTools.js",
+      "description": "Get Full access to the browsers devtools console inside AviaClientDesktop \"works on web\""
+    },
+    {
+      "name": "ThemesCSSPlus",
+      "author": "AvaLilac",
+      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/ThemesCSSPlus.js",
+      "description": "Exactly Like MonacoCSS But for the Themes Editor instead of QuickCSS. ThemesCSSPlus Enhances Avia’s Themes with the Monaco editor, delivering real syntax highlighting, instant live updates, and a smoother editing experience."
     }
   ]
 }
