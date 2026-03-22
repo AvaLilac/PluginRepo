@@ -5,13 +5,16 @@ window.__AVIA_OFFICIAL_REPO_LOADED__ = true;
 
 const STORAGE_KEY = "avia_plugins";
 const OFFICIAL_REPO_URL = "https://avalilac.github.io/PluginRepo/pluginrepobackend.js";
+const THEMES_REGISTRY_URL = "https://avalilac.github.io/PluginRepo/themebackend/themerepobackend.js";
 
 const getPlugins = () => JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
 const setPlugins = (data) => localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
 let repoContent;
 let currentRepoData = [];
+let currentThemeData = [];
 let searchInput;
+let activeTab = "plugins"; // "plugins" | "themes"
 
 document.getElementById("avia-official-repo-btn")?.remove();
 
@@ -52,40 +55,32 @@ function renderRepo(data, filter = "") {
             .includes(filter.toLowerCase())
     );
 
-    filtered.forEach(repoPlugin => {
+    if (filtered.length === 0) {
+        repoContent.innerHTML = `<div style="opacity:0.5;text-align:center;margin-top:30px;">No plugins found.</div>`;
+        return;
+    }
 
+    filtered.forEach(repoPlugin => {
         const row = document.createElement("div");
-        row.style.display = "flex";
-        row.style.justifyContent = "space-between";
-        row.style.alignItems = "center";
-        row.style.marginBottom = "10px";
-        row.style.width = "100%";
-        row.style.minWidth = "0";
+        row.style.cssText = "display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;width:100%;min-width:0;";
         row.setAttribute("data-link", repoPlugin.link);
 
         const left = document.createElement("div");
-        left.style.display = "flex";
-        left.style.flexDirection = "column";
-        left.style.flex = "1";
-        left.style.minWidth = "0";
+        left.style.cssText = "display:flex;flex-direction:column;flex:1;min-width:0;";
 
         const title = document.createElement("div");
         title.textContent = `${repoPlugin.name} — ${repoPlugin.author || "Unknown"}`;
-        title.style.fontWeight = "500";
-        title.style.wordBreak = "break-word";
+        title.style.cssText = "font-weight:500;word-break:break-word;";
 
         const desc = document.createElement("div");
-        desc.textContent = repoPlugin.description;
-        desc.style.fontSize = "12px";
-        desc.style.opacity = "0.7";
-        desc.style.wordBreak = "break-word";
+        desc.textContent = repoPlugin.description || "";
+        desc.style.cssText = "font-size:12px;opacity:0.7;word-break:break-word;";
 
         left.appendChild(title);
         left.appendChild(desc);
 
         const installBtn = document.createElement("button");
         installBtn.className = "install-btn";
-
         Object.assign(installBtn.style, {
             padding: "6px 10px",
             borderRadius: "8px",
@@ -99,11 +94,7 @@ function renderRepo(data, filter = "") {
         installBtn.onclick = () => {
             const plugins = getPlugins();
             if (!plugins.some(p => p.url === repoPlugin.link)) {
-                plugins.push({
-                    name: repoPlugin.name,
-                    url: repoPlugin.link,
-                    enabled: false
-                });
+                plugins.push({ name: repoPlugin.name, url: repoPlugin.link, enabled: false });
                 setPlugins(plugins);
                 window.dispatchEvent(new Event("avia-plugin-list-changed"));
                 triggerManagerRefresh();
@@ -119,7 +110,7 @@ function renderRepo(data, filter = "") {
     updateInstallStates();
 }
 
-function refetchRepo() {
+function refetchPlugins() {
     if (!repoContent) return;
     repoContent.innerHTML = "Loading...";
 
@@ -129,9 +120,7 @@ function refetchRepo() {
             https.get(OFFICIAL_REPO_URL, res => {
                 let data = "";
                 res.on("data", chunk => data += chunk);
-                res.on("end", () => {
-                    renderRepo(JSON.parse(data));
-                });
+                res.on("end", () => renderRepo(JSON.parse(data)));
             }).on("error", () => {
                 repoContent.innerHTML = "Failed to fetch repo.";
             });
@@ -150,10 +139,185 @@ function refetchRepo() {
     }
 }
 
+const THEMES_STORAGE_KEY = "avia_themes";
+const getStoredThemes = () => JSON.parse(localStorage.getItem(THEMES_STORAGE_KEY) || "[]");
+const setStoredThemes = (data) => localStorage.setItem(THEMES_STORAGE_KEY, JSON.stringify(data));
+
+function buildThemeCSS(theme, rawCSS) {
+
+    const header = `/* @name ${theme.name}\n   @author ${theme.author || "Unknown"}\n   @version 1.0\n   @description Installed from Trusted Themes Repo\n*/\n`;
+    return header + rawCSS;
+}
+
+function installThemeCSS(theme, btn) {
+    btn.disabled = true;
+    btn.textContent = "Installing…";
+
+    fetch(theme.download)
+        .then(r => r.text())
+        .then(rawCSS => {
+            const css = buildThemeCSS(theme, rawCSS);
+            const themes = getStoredThemes();
+
+            const alreadyInstalled = themes.some(t => {
+                const match = t.css.match(/@name\s+(.+)/);
+                return match && match[1].trim() === theme.name;
+            });
+
+            if (alreadyInstalled) {
+                btn.textContent = "Installed";
+
+                return;
+            }
+
+            themes.push({ id: crypto.randomUUID(), css, enabled: true });
+            setStoredThemes(themes);
+
+            document.querySelectorAll(".avia-theme-style").forEach(e => e.remove());
+            getStoredThemes().forEach(t => {
+                if (!t.enabled) return;
+                const style = document.createElement("style");
+                style.className = "avia-theme-style";
+                style.textContent = t.css;
+                document.head.appendChild(style);
+            });
+
+            if (typeof window.__avia_refresh_themes_panel === "function") {
+                window.__avia_refresh_themes_panel();
+            }
+
+            btn.textContent = "Installed";
+
+        })
+        .catch(() => {
+            btn.textContent = "Install CSS";
+            btn.disabled = false;
+            alert("Failed to fetch theme CSS.");
+        });
+}
+
+function renderThemes(filter = "") {
+    if (!repoContent) return;
+    repoContent.innerHTML = "";
+
+    const filtered = currentThemeData.filter(t =>
+        (t.name + " " + (t.author || ""))
+            .toLowerCase()
+            .includes(filter.toLowerCase())
+    );
+
+    if (filtered.length === 0) {
+        repoContent.innerHTML = `<div style="opacity:0.5;text-align:center;margin-top:30px;">No themes found.</div>`;
+        return;
+    }
+
+    filtered.forEach(theme => {
+        const card = document.createElement("div");
+        card.style.cssText = "margin-bottom:14px;background:rgba(255,255,255,0.04);border-radius:12px;overflow:hidden;border:1px solid rgba(255,255,255,0.07);";
+
+        if (theme.preview) {
+            const img = document.createElement("img");
+            img.src = theme.preview;
+            img.alt = theme.name;
+            img.style.cssText = "width:100%;display:block;background:#111;object-fit:contain;";
+            img.onerror = () => img.style.display = "none";
+            card.appendChild(img);
+        }
+
+        const info = document.createElement("div");
+        info.style.cssText = "display:flex;justify-content:space-between;align-items:center;padding:10px 12px;gap:8px;";
+
+        const meta = document.createElement("div");
+        meta.style.cssText = "display:flex;flex-direction:column;min-width:0;flex:1;";
+
+        const name = document.createElement("div");
+        name.textContent = theme.name;
+        name.style.cssText = "font-weight:500;word-break:break-word;";
+
+        const author = document.createElement("div");
+        author.textContent = `by ${theme.author || "Unknown"}`;
+        author.style.cssText = "font-size:12px;opacity:0.6;";
+
+        meta.appendChild(name);
+        meta.appendChild(author);
+
+        const alreadyInstalled = getStoredThemes().some(t => {
+            const match = t.css.match(/@name\s+(.+)/);
+            return match && match[1].trim() === theme.name;
+        });
+
+        const dlBtn = document.createElement("button");
+        dlBtn.textContent = alreadyInstalled ? "Installed" : "Install CSS";
+        dlBtn.disabled = alreadyInstalled;
+        Object.assign(dlBtn.style, {
+            padding: "6px 10px",
+            borderRadius: "8px",
+            border: "none",
+            cursor: alreadyInstalled ? "default" : "pointer",
+            background: "rgba(255,255,255,0.08)",
+            color: "#fff",
+            flexShrink: "0",
+            fontSize: "12px",
+            whiteSpace: "nowrap"
+        });
+        dlBtn.onclick = () => installThemeCSS(theme, dlBtn);
+
+        info.appendChild(meta);
+        info.appendChild(dlBtn);
+        card.appendChild(info);
+        repoContent.appendChild(card);
+    });
+}
+
+function refetchThemes() {
+    if (!repoContent) return;
+    repoContent.innerHTML = "Loading themes...";
+    currentThemeData = [];
+
+    fetch(THEMES_REGISTRY_URL)
+        .then(r => r.json())
+        .then(async registry => {
+            const sources = registry.sources || [];
+            const results = await Promise.allSettled(
+                sources.map(s => fetch(s.url).then(r => r.json()))
+            );
+            results.forEach(r => {
+                if (r.status === "fulfilled") {
+                    currentThemeData.push(...(r.value.themes || []));
+                }
+            });
+            renderThemes(searchInput.value);
+        })
+        .catch(() => {
+            if (repoContent) repoContent.innerHTML = "Failed to fetch themes.";
+        });
+}
+
+function switchTab(tab, tabPluginsBtn, tabThemesBtn) {
+    activeTab = tab;
+    const isPlugins = tab === "plugins";
+
+    tabPluginsBtn.style.background = isPlugins ? "rgba(255,255,255,0.12)" : "transparent";
+    tabPluginsBtn.style.color = isPlugins ? "#fff" : "rgba(255,255,255,0.45)";
+    tabThemesBtn.style.background = !isPlugins ? "rgba(255,255,255,0.12)" : "transparent";
+    tabThemesBtn.style.color = !isPlugins ? "#fff" : "rgba(255,255,255,0.45)";
+
+    searchInput.placeholder = isPlugins
+        ? "Search plugins, authors, or descriptions"
+        : "Search themes or authors";
+    searchInput.value = "";
+
+    if (isPlugins) {
+        if (currentRepoData.length > 0) renderRepo({ plugins: currentRepoData });
+        else refetchPlugins();
+    } else {
+        if (currentThemeData.length > 0) renderThemes();
+        else refetchThemes();
+    }
+}
+
 function openWindow() {
-
     let panel = document.getElementById("avia-official-repo-window");
-
     if (panel) {
         panel.style.display = panel.style.display === "none" ? "flex" : "none";
         return;
@@ -161,13 +325,12 @@ function openWindow() {
 
     panel = document.createElement("div");
     panel.id = "avia-official-repo-window";
-
     Object.assign(panel.style, {
         position: "fixed",
         bottom: "40px",
         right: "40px",
         width: "420px",
-        height: "500px",
+        height: "520px",
         background: "#1e1e1e",
         color: "#fff",
         borderRadius: "20px",
@@ -180,8 +343,7 @@ function openWindow() {
     });
 
     const header = document.createElement("div");
-    header.textContent = "Trusted Plugins Repo";
-
+    header.textContent = "Plugins & Themes Repo";
     Object.assign(header.style, {
         padding: "18px",
         fontWeight: "600",
@@ -194,10 +356,7 @@ function openWindow() {
         userSelect: "none"
     });
 
-    let isDragging = false;
-    let offsetX = 0;
-    let offsetY = 0;
-
+    let isDragging = false, offsetX = 0, offsetY = 0;
     header.addEventListener("mousedown", (e) => {
         isDragging = true;
         const rect = panel.getBoundingClientRect();
@@ -209,13 +368,11 @@ function openWindow() {
         panel.style.top = rect.top + "px";
         document.body.style.userSelect = "none";
     });
-
     document.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
         panel.style.left = e.clientX - offsetX + "px";
         panel.style.top = e.clientY - offsetY + "px";
     });
-
     document.addEventListener("mouseup", () => {
         isDragging = false;
         document.body.style.userSelect = "";
@@ -223,29 +380,31 @@ function openWindow() {
 
     const close = document.createElement("div");
     close.textContent = "✕";
-
-    Object.assign(close.style, {
-        position: "absolute",
-        right: "18px",
-        top: "16px",
-        cursor: "pointer"
-    });
-
+    Object.assign(close.style, { position: "absolute", right: "18px", top: "16px", cursor: "pointer" });
     close.onclick = () => panel.style.display = "none";
     header.appendChild(close);
 
-    const container = document.createElement("div");
+    const tabs = document.createElement("div");
+    tabs.style.cssText = "display:flex;gap:6px;padding:10px 12px 0;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.08);";
 
-    Object.assign(container.style, {
-        flex: "1",
-        display: "flex",
-        flexDirection: "column",
-        overflow: "hidden"
-    });
+    const tabStyle = "padding:6px 16px;border-radius:8px 8px 0 0;border:none;cursor:pointer;font-size:13px;font-weight:500;transition:background 0.15s,color 0.15s;font-family:inherit;";
+
+    const tabPluginsBtn = document.createElement("button");
+    tabPluginsBtn.textContent = "Plugins";
+    tabPluginsBtn.style.cssText = tabStyle;
+
+    const tabThemesBtn = document.createElement("button");
+    tabThemesBtn.textContent = "Themes";
+    tabThemesBtn.style.cssText = tabStyle;
+
+    tabPluginsBtn.onclick = () => switchTab("plugins", tabPluginsBtn, tabThemesBtn);
+    tabThemesBtn.onclick = () => switchTab("themes", tabPluginsBtn, tabThemesBtn);
+
+    tabs.appendChild(tabPluginsBtn);
+    tabs.appendChild(tabThemesBtn);
 
     searchInput = document.createElement("input");
     searchInput.placeholder = "Search plugins, authors, or descriptions";
-
     Object.assign(searchInput.style, {
         margin: "12px",
         padding: "8px",
@@ -255,48 +414,46 @@ function openWindow() {
         background: "rgba(255,255,255,0.06)",
         color: "#fff"
     });
+    searchInput.addEventListener("input", () => {
+        if (activeTab === "plugins") renderRepo({ plugins: currentRepoData }, searchInput.value);
+        else renderThemes(searchInput.value);
+    });
 
     repoContent = document.createElement("div");
-
     Object.assign(repoContent.style, {
         flex: "1",
         overflowY: "auto",
         overflowX: "hidden",
-        padding: "12px"
+        padding: "0 12px 12px"
     });
 
-    searchInput.addEventListener("input", () => {
-        renderRepo({ plugins: currentRepoData }, searchInput.value);
-    });
-
+    const container = document.createElement("div");
+    Object.assign(container.style, { flex: "1", display: "flex", flexDirection: "column", overflow: "hidden" });
     container.appendChild(searchInput);
     container.appendChild(repoContent);
 
     panel.appendChild(header);
+    panel.appendChild(tabs);
     panel.appendChild(container);
     document.body.appendChild(panel);
 
-    refetchRepo();
+    switchTab("plugins", tabPluginsBtn, tabThemesBtn);
+    refetchPlugins();
 }
 
 function injectSettingsButton() {
-
     if (document.getElementById("avia-official-repo-btn-settings")) return;
 
     const appearanceBtn = [...document.querySelectorAll("a")]
         .find(a => a.textContent.trim() === "Appearance");
-
     const referenceNode = document.getElementById("stoat-fake-quickcss");
-
     if (!appearanceBtn || !referenceNode) return;
 
     const clone = appearanceBtn.cloneNode(true);
     clone.id = "avia-official-repo-btn-settings";
 
-    const label = [...clone.querySelectorAll("div")]
-        .find(d => d.children.length === 0);
-
-    if (label) label.textContent = "(Avia) Trusted Plugins Repo";
+    const label = [...clone.querySelectorAll("div")].find(d => d.children.length === 0);
+    if (label) label.textContent = "(Avia)  Plugins/Themes Repo";
 
     const iconSpan = clone.querySelector("span.material-symbols-outlined");
     if (iconSpan) {
@@ -305,7 +462,6 @@ function injectSettingsButton() {
     }
 
     clone.onclick = openWindow;
-
     referenceNode.parentElement.insertBefore(clone, referenceNode.nextSibling);
 }
 
@@ -315,9 +471,8 @@ window.addEventListener("avia-plugin-list-changed", () => {
     }
 });
 
-new MutationObserver(() => {
-    injectSettingsButton();
-}).observe(document.body, { childList: true, subtree: true });
+new MutationObserver(() => injectSettingsButton())
+    .observe(document.body, { childList: true, subtree: true });
 
 injectSettingsButton();
 
