@@ -195,6 +195,13 @@
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/CharacterCounter.js",
       "description": "Add a counter to your Textbox to display how many letters till you hit stoats limit inside channels",
       "icon": "calculate"
+    },
+    {
+      "name": "StoatServers.com Discovery",
+      "author": "Pierce#5961",
+      "link": "https://stoatservers.com/plugins/stoatservers-discovery.avia.js",
+      "description": "Includes a new button under the Discovery button that lets you navigate to stoatservers.com and join servers. Adjusted to make it work with the limitations of the userscript. (Some degraded UX due to not having access to stt.gg, but all is functional)",
+      "icon": "cloud"
     }
   ]
 }
