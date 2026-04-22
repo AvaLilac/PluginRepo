@@ -81,10 +81,7 @@
     z-index: 10;
   }
 
-  .app-bar-icon {
-    font-size: 24px;
-    color: var(--md-primary);
-  }
+  .app-bar-icon { font-size: 24px; color: var(--md-primary); }
 
   .app-bar-title {
     font-family: 'Google Sans Display', sans-serif;
@@ -140,10 +137,7 @@
     user-select: none;
   }
   .nav-item:hover { background: var(--md-state-hover); }
-  .nav-item.active {
-    background: var(--md-secondary-container);
-    color: var(--md-on-primary-container);
-  }
+  .nav-item.active { background: var(--md-secondary-container); color: var(--md-on-primary-container); }
   .nav-item .material-symbols-outlined { font-size: 20px; }
 
   .badge {
@@ -158,12 +152,7 @@
     text-align: center;
   }
 
-  .main {
-    display: flex;
-    flex-direction: column;
-    min-height: 0;
-    overflow: hidden;
-  }
+  .main { display: flex; flex-direction: column; min-height: 0; overflow: hidden; }
 
   .toolbar {
     padding: 20px 24px 16px;
@@ -176,11 +165,7 @@
     flex-wrap: wrap;
   }
 
-  .search-field {
-    flex: 1;
-    max-width: 480px;
-    position: relative;
-  }
+  .search-field { flex: 1; max-width: 480px; position: relative; }
 
   .search-field .material-symbols-outlined {
     position: absolute;
@@ -205,260 +190,111 @@
     outline: none;
     transition: border-color 0.15s, background 0.15s;
   }
-  .search-field input:focus {
-    border-color: var(--md-primary);
-    background: var(--md-surface);
-  }
+  .search-field input:focus { border-color: var(--md-primary); background: var(--md-surface); }
   .search-field input::placeholder { color: var(--md-on-surface-variant); }
 
   .toolbar-actions { display: flex; align-items: center; gap: 8px; margin-left: auto; }
 
   .icon-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: none;
-    background: transparent;
-    color: var(--md-on-surface-variant);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background 0.15s;
+    width: 40px; height: 40px; border-radius: 50%; border: none;
+    background: transparent; color: var(--md-on-surface-variant);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: background 0.15s;
   }
   .icon-btn:hover { background: var(--md-state-hover); }
   .icon-btn .material-symbols-outlined { font-size: 22px; }
 
   .count-chip {
-    font-size: 12px;
-    color: var(--md-on-surface-variant);
-    padding: 6px 14px;
-    background: var(--md-surface-variant);
+    font-size: 12px; color: var(--md-on-surface-variant);
+    padding: 6px 14px; background: var(--md-surface-variant);
     border-radius: var(--radius-full);
   }
 
-  .sort-bar {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    width: 100%;
-    padding-top: 4px;
-  }
+  .sort-bar { display: flex; align-items: center; gap: 6px; width: 100%; padding-top: 4px; }
 
   .sort-label {
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--md-on-surface-variant);
-    white-space: nowrap;
-    padding-right: 2px;
+    font-size: 12px; font-weight: 500; color: var(--md-on-surface-variant);
+    white-space: nowrap; padding-right: 2px;
   }
 
-  .sort-chips {
-    display: flex;
-    gap: 6px;
-    flex-wrap: wrap;
-  }
+  .sort-chips { display: flex; gap: 6px; flex-wrap: wrap; }
 
   .sort-chip {
-    height: 32px;
-    padding: 0 14px;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--md-outline-variant);
-    background: transparent;
-    color: var(--md-on-surface-variant);
-    font-family: 'Google Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    height: 32px; padding: 0 14px; border-radius: var(--radius-full);
+    border: 1px solid var(--md-outline-variant); background: transparent;
+    color: var(--md-on-surface-variant); font-family: 'Google Sans', sans-serif;
+    font-size: 13px; font-weight: 500; cursor: pointer;
+    display: flex; align-items: center; gap: 6px;
     transition: background 0.15s, color 0.15s, border-color 0.15s;
-    white-space: nowrap;
-    user-select: none;
+    white-space: nowrap; user-select: none;
   }
   .sort-chip .material-symbols-outlined { font-size: 16px; }
-  .sort-chip:hover {
-    background: var(--md-state-hover);
-    border-color: var(--md-outline);
-  }
-  .sort-chip.active {
-    background: var(--md-secondary-container);
-    color: var(--md-on-primary-container);
-    border-color: transparent;
-  }
+  .sort-chip:hover { background: var(--md-state-hover); border-color: var(--md-outline); }
+  .sort-chip.active { background: var(--md-secondary-container); color: var(--md-on-primary-container); border-color: transparent; }
 
-  .content {
-    padding: 20px 24px;
-    overflow-y: auto;
-    flex: 1;
-  }
+  .content { padding: 20px 24px; overflow-y: auto; flex: 1; }
 
-  .plugin-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 12px;
-  }
+  .plugin-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
 
   .plugin-card {
-    background: var(--md-surface-container);
-    border: 1px solid var(--md-outline-variant);
-    border-radius: var(--radius-xl);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    transition: border-color 0.15s, background 0.15s;
-    position: relative;
+    background: var(--md-surface-container); border: 1px solid var(--md-outline-variant);
+    border-radius: var(--radius-xl); padding: 20px;
+    display: flex; flex-direction: column; gap: 12px;
+    transition: border-color 0.15s, background 0.15s; position: relative;
   }
-  .plugin-card:hover {
-    background: var(--md-surface-container-high);
-    border-color: var(--md-outline);
-  }
+  .plugin-card:hover { background: var(--md-surface-container-high); border-color: var(--md-outline); }
 
-  .plugin-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-  }
+  .plugin-header { display: flex; align-items: flex-start; gap: 14px; }
 
   .plugin-icon {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-lg);
+    width: 48px; height: 48px; border-radius: var(--radius-lg);
     background: var(--md-primary-container);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
   }
-  .plugin-icon .material-symbols-outlined {
-    font-size: 24px;
-    color: var(--md-on-primary-container);
-  }
+  .plugin-icon .material-symbols-outlined { font-size: 24px; color: var(--md-on-primary-container); }
 
   .plugin-meta { flex: 1; min-width: 0; }
 
   .plugin-name {
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--md-on-surface);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 16px; font-weight: 500; color: var(--md-on-surface);
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
 
-  .plugin-author {
-    font-size: 12px;
-    color: var(--md-on-surface-variant);
-    margin-top: 2px;
-  }
+  .plugin-author { font-size: 12px; color: var(--md-on-surface-variant); margin-top: 2px; }
 
-  .plugin-desc {
-    font-size: 13px;
-    color: var(--md-on-surface-variant);
-    line-height: 1.6;
-    flex: 1;
-  }
+  .plugin-desc { font-size: 13px; color: var(--md-on-surface-variant); line-height: 1.6; flex: 1; }
 
-  .plugin-actions {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    margin-top: 4px;
-  }
-
-  .btn-filled {
-    height: 36px;
-    padding: 0 20px;
-    border-radius: var(--radius-full);
-    border: none;
-    background: var(--md-primary);
-    color: var(--md-on-primary);
-    font-family: 'Google Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: opacity 0.15s, box-shadow 0.15s;
-    flex-shrink: 0;
-  }
-  .btn-filled:hover { box-shadow: 0 1px 6px var(--md-shadow); opacity: 0.92; }
-  .btn-filled:disabled {
-    background: var(--md-outline-variant);
-    color: var(--md-on-surface-variant);
-    cursor: default;
-    opacity: 1;
-    box-shadow: none;
-  }
-  .btn-filled .material-symbols-outlined { font-size: 16px; }
+  .plugin-actions { display: flex; gap: 8px; align-items: center; margin-top: 4px; }
 
   .btn-tonal {
-    height: 36px;
-    padding: 0 16px;
-    border-radius: var(--radius-full);
-    border: none;
-    background: var(--md-secondary-container);
-    color: var(--md-on-primary-container);
-    font-family: 'Google Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: opacity 0.15s;
+    height: 36px; padding: 0 16px; border-radius: var(--radius-full); border: none;
+    background: var(--md-secondary-container); color: var(--md-on-primary-container);
+    font-family: 'Google Sans', sans-serif; font-size: 13px; font-weight: 500;
+    cursor: pointer; display: flex; align-items: center; gap: 6px; transition: opacity 0.15s;
   }
   .btn-tonal:hover { opacity: 0.85; }
-  .btn-tonal:disabled {
-    opacity: 0.6;
-    cursor: default;
-  }
+  .btn-tonal:disabled { opacity: 0.6; cursor: default; }
   .btn-tonal .material-symbols-outlined { font-size: 16px; }
 
   .copy-toast {
-    position: fixed;
-    bottom: 32px;
-    left: 50%;
+    position: fixed; bottom: 32px; left: 50%;
     transform: translateX(-50%) translateY(80px);
-    background: var(--md-on-surface);
-    color: var(--md-surface);
-    padding: 12px 24px;
-    border-radius: var(--radius-lg);
-    font-size: 14px;
-    font-weight: 500;
-    z-index: 9999;
+    background: var(--md-on-surface); color: var(--md-surface);
+    padding: 12px 24px; border-radius: var(--radius-lg);
+    font-size: 14px; font-weight: 500; z-index: 9999;
     transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s;
-    opacity: 0;
-    pointer-events: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    opacity: 0; pointer-events: none; display: flex; align-items: center; gap: 10px;
   }
-  .copy-toast.show {
-    transform: translateX(-50%) translateY(0);
-    opacity: 1;
-  }
+  .copy-toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
   .copy-toast .material-symbols-outlined { font-size: 18px; color: #A8C7FA; }
 
   .loading-state, .error-state, .empty-state {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 80px 24px;
-    color: var(--md-on-surface-variant);
-    gap: 16px;
-    text-align: center;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 80px 24px; color: var(--md-on-surface-variant); gap: 16px; text-align: center;
   }
   .loading-state .material-symbols-outlined,
   .error-state .material-symbols-outlined,
-  .empty-state .material-symbols-outlined {
-    font-size: 48px;
-    opacity: 0.5;
-  }
+  .empty-state .material-symbols-outlined { font-size: 48px; opacity: 0.5; }
   .loading-state p, .error-state p, .empty-state p { font-size: 15px; }
 
   @keyframes spin { to { transform: rotate(360deg); } }
@@ -466,156 +302,79 @@
 
   .divider { height: 1px; background: var(--md-outline-variant); margin: 8px 0; }
 
-  .theme-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
-  }
+  .theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
 
   .theme-card {
-    background: var(--md-surface-container);
-    border: 1px solid var(--md-outline-variant);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
+    background: var(--md-surface-container); border: 1px solid var(--md-outline-variant);
+    border-radius: var(--radius-xl); overflow: hidden;
+    display: flex; flex-direction: column;
     transition: border-color 0.15s, background 0.15s;
   }
-  .theme-card:hover {
-    background: var(--md-surface-container-high);
-    border-color: var(--md-outline);
-  }
+  .theme-card:hover { background: var(--md-surface-container-high); border-color: var(--md-outline); }
 
   .theme-preview {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: contain;
-    background: var(--md-surface-container-highest);
-    display: block;
+    width: 100%; aspect-ratio: 16/9; object-fit: contain;
+    background: var(--md-surface-container-highest); display: block;
   }
 
   .theme-preview-placeholder {
-    width: 100%;
-    aspect-ratio: 16/9;
+    width: 100%; aspect-ratio: 16/9;
     background: var(--md-surface-container-highest);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: flex; align-items: center; justify-content: center;
     color: var(--md-on-surface-variant);
   }
   .theme-preview-placeholder .material-symbols-outlined { font-size: 40px; opacity: 0.4; }
 
-  .theme-info {
-    padding: 14px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .theme-info-top {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
+  .theme-info { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .theme-info-top { display: flex; align-items: center; gap: 10px; }
   .theme-meta { flex: 1; min-width: 0; }
-
-  .theme-name {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--md-on-surface);
-    word-break: break-word;
-  }
-
-  .theme-author {
-    font-size: 12px;
-    color: var(--md-on-surface-variant);
-    margin-top: 2px;
-  }
+  .theme-name { font-size: 14px; font-weight: 500; color: var(--md-on-surface); word-break: break-word; }
+  .theme-author { font-size: 12px; color: var(--md-on-surface-variant); margin-top: 2px; }
 
   @media (max-width: 600px) {
     .app-bar { padding: 0 16px; height: 56px; }
     .app-bar-title { font-size: 18px; }
     .app-bar-subtitle { display: none; }
-
     .layout { grid-template-columns: 1fr; }
-
     .sidebar { display: none; }
-
     .toolbar { padding: 12px 16px; gap: 8px; flex-wrap: wrap; }
     .search-field { max-width: 100%; order: 1; width: 100%; }
     .toolbar-actions { order: 2; width: 100%; justify-content: space-between; }
     .sort-bar { order: 3; }
-
     .content { padding: 12px 16px; }
-
     .plugin-grid { grid-template-columns: 1fr; gap: 10px; }
-
     .plugin-card { padding: 16px; }
-
     .plugin-actions { flex-wrap: wrap; }
 
     .mobile-nav {
-      display: flex;
-      position: fixed;
-      bottom: 0; left: 0; right: 0;
-      background: var(--md-surface-container);
-      border-top: 1px solid var(--md-outline-variant);
-      height: 64px;
-      z-index: 20;
+      display: flex; position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--md-surface-container); border-top: 1px solid var(--md-outline-variant);
+      height: 64px; z-index: 20;
     }
     .mobile-nav-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 3px;
-      cursor: pointer;
-      color: var(--md-on-surface-variant);
-      font-size: 11px;
-      font-weight: 500;
-      padding: 8px 0;
-      border-radius: 0;
-      transition: color 0.15s;
-      position: relative;
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 3px; cursor: pointer; color: var(--md-on-surface-variant);
+      font-size: 11px; font-weight: 500; padding: 8px 0;
+      border-radius: 0; transition: color 0.15s; position: relative;
     }
     .mobile-nav-item.active { color: var(--md-primary); }
-    .mobile-nav-item.active .mobile-nav-pill {
-      background: var(--md-primary-container);
-    }
+    .mobile-nav-item.active .mobile-nav-pill { background: var(--md-primary-container); }
     .mobile-nav-pill {
-      width: 64px;
-      height: 32px;
-      border-radius: var(--radius-full);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.15s;
+      width: 64px; height: 32px; border-radius: var(--radius-full);
+      display: flex; align-items: center; justify-content: center; transition: background 0.15s;
     }
     .mobile-nav-item .material-symbols-outlined { font-size: 22px; }
     .mobile-nav-badge {
-      position: absolute;
-      top: 6px;
-      left: 50%;
-      margin-left: 8px;
-      background: var(--md-primary);
-      color: var(--md-on-primary);
-      font-size: 10px;
-      font-weight: 600;
-      padding: 1px 6px;
-      border-radius: var(--radius-full);
-      min-width: 18px;
-      text-align: center;
+      position: absolute; top: 6px; left: 50%; margin-left: 8px;
+      background: var(--md-primary); color: var(--md-on-primary);
+      font-size: 10px; font-weight: 600; padding: 1px 6px;
+      border-radius: var(--radius-full); min-width: 18px; text-align: center;
     }
-
     .main { padding-bottom: 64px; }
     .copy-toast { bottom: 80px; }
   }
 
-  @media (min-width: 601px) {
-    .mobile-nav { display: none; }
-  }
+  @media (min-width: 601px) { .mobile-nav { display: none; } }
 </style>
 </head>
 <body>
@@ -669,21 +428,17 @@
           <span class="material-symbols-outlined" id="refresh-icon">refresh</span>
         </button>
       </div>
-
       <div class="sort-bar" id="sort-bar">
         <span class="sort-label">Order:</span>
         <div class="sort-chips">
           <button class="sort-chip" id="sort-oldest" onclick="setPluginSort('oldest')">
-            <span class="material-symbols-outlined">arrow_upward</span>
-            Oldest
+            <span class="material-symbols-outlined">arrow_upward</span>Oldest
           </button>
           <button class="sort-chip" id="sort-newest" onclick="setPluginSort('newest')">
-            <span class="material-symbols-outlined">arrow_downward</span>
-            Newest
+            <span class="material-symbols-outlined">arrow_downward</span>Newest
           </button>
           <button class="sort-chip" id="sort-shuffle" onclick="setPluginSort('shuffle')">
-            <span class="material-symbols-outlined">shuffle</span>
-            Shuffle
+            <span class="material-symbols-outlined">shuffle</span>Shuffle
           </button>
         </div>
       </div>
@@ -700,28 +455,20 @@
 
 <nav class="mobile-nav">
   <div class="mobile-nav-item active" id="mnav-all" onclick="setFilter('all')">
-    <div class="mobile-nav-pill">
-      <span class="material-symbols-outlined">grid_view</span>
-    </div>
+    <div class="mobile-nav-pill"><span class="material-symbols-outlined">grid_view</span></div>
     <span>All</span>
     <span class="mobile-nav-badge" id="mob-count-all">0</span>
   </div>
   <div class="mobile-nav-item" id="mnav-new" onclick="setFilter('new')">
-    <div class="mobile-nav-pill">
-      <span class="material-symbols-outlined">new_releases</span>
-    </div>
+    <div class="mobile-nav-pill"><span class="material-symbols-outlined">new_releases</span></div>
     <span>Recent</span>
   </div>
   <div class="mobile-nav-item" id="mnav-themes" onclick="setSection('themes')">
-    <div class="mobile-nav-pill">
-      <span class="material-symbols-outlined">palette</span>
-    </div>
+    <div class="mobile-nav-pill"><span class="material-symbols-outlined">palette</span></div>
     <span>Themes</span>
   </div>
   <div class="mobile-nav-item" onclick="window.open('https://avalilac.github.io/PluginRepo/pluginrepobackend.js', '_blank')">
-    <div class="mobile-nav-pill">
-      <span class="material-symbols-outlined">code</span>
-    </div>
+    <div class="mobile-nav-pill"><span class="material-symbols-outlined">code</span></div>
     <span>Source</span>
   </div>
 </nav>
@@ -740,7 +487,7 @@ let allThemes = [];
 let allThemesBySource = [];
 let activeFilter = 'all';
 let activeSection = 'plugins';
-let pluginSort = 'oldest';
+let pluginSort = 'newest';
 let shuffledPlugins = [];
 let toastTimer = null;
 
@@ -750,51 +497,25 @@ const resultCount = document.getElementById('result-count');
 const countAll = document.getElementById('count-all');
 const sortBar = document.getElementById('sort-bar');
 
-function showToast(msg) {
-  const toast = document.getElementById('toast');
-  document.getElementById('toast-text').textContent = msg;
-  toast.classList.add('show');
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
-}
+const ICON_ALIASES = {
+  'paste':          'content_paste',
+  'hide_image':     'hide_source',
+  'snippet_folder': 'folder_copy',
+  'coin':           'toll',
+};
 
-function copyLink(url) {
-  navigator.clipboard.writeText(url).then(() => showToast('Link copied to clipboard'));
-}
-
-function downloadPlugin(plugin, btn) {
-  btn.disabled = true;
-  btn.innerHTML = `<span class="material-symbols-outlined spin">progress_activity</span> Downloading…`;
-
-  fetch(plugin.link)
-    .then(r => {
-      if (!r.ok) throw new Error('Network response was not ok');
-      return r.blob();
-    })
-    .then(blob => {
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      const urlParts = plugin.link.split('/');
-      const rawFilename = urlParts[urlParts.length - 1] || plugin.name.replace(/\s+/g, '-').toLowerCase() + '.js';
-      a.download = rawFilename;
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      showToast('Downloaded ' + plugin.name);
-      btn.disabled = false;
-      btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
-    })
-    .catch(() => {
-      showToast('Download failed — try again');
-      btn.disabled = false;
-      btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
-    });
-}
-
+/**
+ * Returns a valid Material Symbols Outlined icon name for a plugin.
+ * 1. If the backend supplies an icon, use it — but run it through ICON_ALIASES
+ *    first to fix any known-broken names.
+ * 2. Otherwise fall back to keyword matching on name + description.
+ */
 function getIconForPlugin(p) {
-  if (p.icon) return p.icon;
+  if (p.icon) {
+    const raw = String(p.icon).trim();
+    return ICON_ALIASES[raw] || raw;
+  }
+
   const n = (p.name + ' ' + (p.description || '')).toLowerCase();
   if (/music|spotify|audio|song|playlist|soundcloud|lastfm|scrobble/.test(n)) return 'music_note';
   if (/video|youtube|movie|film|stream|vod|twitch|clip/.test(n)) return 'movie';
@@ -818,7 +539,7 @@ function getIconForPlugin(p) {
   if (/calendar|schedule|\bevent\b/.test(n)) return 'calendar_month';
   if (/\btimer\b|stopwatch|countdown|pomodoro/.test(n)) return 'timer';
   if (/\bnote\b|notepad|journal|diary/.test(n)) return 'edit_note';
-  if (/snippet|clipboard|paste|template/.test(n)) return 'snippet_folder';
+  if (/clipboard|paste|template/.test(n)) return 'content_paste';
   if (/calculat|\bmath\b/.test(n)) return 'calculate';
   if (/\bcode\b|developer|syntax|markdown/.test(n)) return 'code';
   if (/terminal|console|shell|command/.test(n)) return 'terminal';
@@ -858,19 +579,52 @@ function getIconForPlugin(p) {
   return 'extension';
 }
 
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  document.getElementById('toast-text').textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+function copyLink(url) {
+  navigator.clipboard.writeText(url).then(() => showToast('Link copied to clipboard'));
+}
+
+function downloadPlugin(plugin, btn) {
+  btn.disabled = true;
+  btn.innerHTML = `<span class="material-symbols-outlined spin">progress_activity</span> Downloading…`;
+  fetch(plugin.link)
+    .then(r => { if (!r.ok) throw new Error('bad response'); return r.blob(); })
+    .then(blob => {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const parts = plugin.link.split('/');
+      a.download = parts[parts.length - 1] || plugin.name.replace(/\s+/g, '-').toLowerCase() + '.js';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('Downloaded ' + plugin.name);
+      btn.disabled = false;
+      btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
+    })
+    .catch(() => {
+      showToast('Download failed — try again');
+      btn.disabled = false;
+      btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
+    });
+}
+
 function setPluginSort(mode) {
   pluginSort = mode;
-  if (mode === 'shuffle') {
-    shuffledPlugins = [...allPlugins].sort(() => Math.random() - 0.5);
-  }
+  if (mode === 'shuffle') shuffledPlugins = [...allPlugins].sort(() => Math.random() - 0.5);
   updateSortChips();
   renderPlugins();
 }
 
 function updateSortChips() {
   ['oldest', 'newest', 'shuffle'].forEach(id => {
-    const el = document.getElementById('sort-' + id);
-    if (el) el.classList.toggle('active', pluginSort === id);
+    document.getElementById('sort-' + id)?.classList.toggle('active', pluginSort === id);
   });
 }
 
@@ -884,8 +638,7 @@ function getSortedPlugins(pool) {
 }
 
 function clearNavActive() {
-  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  document.querySelectorAll('.mobile-nav-item').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.nav-item, .mobile-nav-item').forEach(el => el.classList.remove('active'));
 }
 
 function setSortBarVisible(visible) {
@@ -893,30 +646,23 @@ function setSortBarVisible(visible) {
 }
 
 function setSection(s) {
-  activeSection = s;
-  activeFilter = 'all';
-  mobileRecentFilter = 'all';
+  activeSection = s; activeFilter = 'all'; mobileRecentFilter = 'all';
   clearNavActive();
   document.getElementById('nav-' + s)?.classList.add('active');
   document.getElementById('mnav-' + s)?.classList.add('active');
-  document.getElementById('nav-new')?.classList.remove('active');
-  document.getElementById('mnav-new')?.classList.remove('active');
   searchInput.placeholder = s === 'themes' ? 'Search themes or authors…' : 'Search plugins, authors, descriptions…';
   searchInput.value = '';
   setSortBarVisible(s === 'plugins');
-  if (s === 'themes') renderThemes();
-  else renderPlugins();
+  if (s === 'themes') renderThemes(); else renderPlugins();
 }
 
 function setFilter(f) {
-  activeSection = 'plugins';
-  activeFilter = f;
+  activeSection = 'plugins'; activeFilter = f;
   clearNavActive();
   document.getElementById('nav-' + f)?.classList.add('active');
   document.getElementById('mnav-' + f)?.classList.add('active');
   searchInput.placeholder = 'Search plugins, authors, descriptions…';
   setSortBarVisible(true);
-
   if (f === 'new' && window.innerWidth <= 600) {
     mobileRecentFilter = 'all';
     searchInput.placeholder = 'Search plugins or themes, authors, descriptions…';
@@ -928,8 +674,7 @@ function setFilter(f) {
 }
 
 function setRecentThemes() {
-  activeSection = 'themes';
-  activeFilter = 'new';
+  activeSection = 'themes'; activeFilter = 'new';
   clearNavActive();
   document.getElementById('nav-themes-new')?.classList.add('active');
   document.getElementById('mnav-new')?.classList.add('active');
@@ -954,32 +699,23 @@ function buildPluginCard(p) {
     </div>
     ${p.description ? `<div class="plugin-desc">${escHtml(p.description)}</div>` : ''}
     <div class="plugin-actions">
-      <button class="btn-tonal copy-btn" data-link="${escHtml(p.link)}">
-        <span class="material-symbols-outlined">content_copy</span>
-        Copy link
+      <button class="btn-tonal copy-btn">
+        <span class="material-symbols-outlined">content_copy</span>Copy link
       </button>
       <button class="btn-tonal download-btn">
-        <span class="material-symbols-outlined">download</span>
-        Download
+        <span class="material-symbols-outlined">download</span>Download
       </button>
-    </div>
-  `;
+    </div>`;
   card.querySelector('.copy-btn').addEventListener('click', () => copyLink(p.link));
-  card.querySelector('.download-btn').addEventListener('click', function() {
-    downloadPlugin(p, this);
-  });
+  card.querySelector('.download-btn').addEventListener('click', function() { downloadPlugin(p, this); });
   return card;
 }
 
 function renderPlugins() {
   const query = searchInput.value.toLowerCase();
-  let pool = activeFilter === 'new'
-    ? allPlugins.slice(-4)
-    : allPlugins;
-
+  let pool = activeFilter === 'new' ? allPlugins.slice(-4) : allPlugins;
   pool = getSortedPlugins(pool);
-
-  let filtered = pool.filter(p =>
+  const filtered = pool.filter(p =>
     (p.name + ' ' + (p.author || '') + ' ' + (p.description || '')).toLowerCase().includes(query)
   );
 
@@ -989,31 +725,21 @@ function renderPlugins() {
   resultCount.textContent = filtered.length + ' plugin' + (filtered.length !== 1 ? 's' : '');
 
   if (filtered.length === 0) {
-    content.innerHTML = `<div class="empty-state">
-      <span class="material-symbols-outlined">search_off</span>
-      <p>No plugins match your search.</p>
-    </div>`;
+    content.innerHTML = `<div class="empty-state"><span class="material-symbols-outlined">search_off</span><p>No plugins match your search.</p></div>`;
     return;
   }
-
   const grid = document.createElement('div');
   grid.className = 'plugin-grid';
   filtered.forEach(p => grid.appendChild(buildPluginCard(p)));
-
   content.innerHTML = '';
   content.appendChild(grid);
 }
 
 function renderThemes() {
   const query = searchInput.value.toLowerCase();
-
-  let pool;
-  if (activeFilter === 'new') {
-    pool = allThemesBySource.map(s => s.themes.slice(-1)).flat();
-  } else {
-    pool = allThemes;
-  }
-
+  const pool = activeFilter === 'new'
+    ? allThemesBySource.map(s => s.themes.slice(-1)).flat()
+    : allThemes;
   const filtered = pool.filter(t =>
     (t.name + ' ' + (t.author || '')).toLowerCase().includes(query)
   );
@@ -1022,36 +748,22 @@ function renderThemes() {
   resultCount.textContent = filtered.length + ' theme' + (filtered.length !== 1 ? 's' : '');
 
   if (allThemes.length === 0) {
-    content.innerHTML = `<div class="loading-state">
-      <span class="material-symbols-outlined spin">progress_activity</span>
-      <p>Fetching themes…</p>
-    </div>`;
+    content.innerHTML = `<div class="loading-state"><span class="material-symbols-outlined spin">progress_activity</span><p>Fetching themes…</p></div>`;
     return;
   }
-
   if (filtered.length === 0) {
-    content.innerHTML = `<div class="empty-state">
-      <span class="material-symbols-outlined">search_off</span>
-      <p>No themes match your search.</p>
-    </div>`;
+    content.innerHTML = `<div class="empty-state"><span class="material-symbols-outlined">search_off</span><p>No themes match your search.</p></div>`;
     return;
   }
 
   const grid = document.createElement('div');
   grid.className = 'theme-grid';
-
   filtered.forEach(t => {
     const card = document.createElement('div');
     card.className = 'theme-card';
-
-    const preview = t.preview
-      ? `<img class="theme-preview" src="${escHtml(t.preview)}" alt="${escHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-      : '';
+    const preview = t.preview ? `<img class="theme-preview" src="${escHtml(t.preview)}" alt="${escHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : '';
     const placeholder = `<div class="theme-preview-placeholder" style="${t.preview ? 'display:none' : ''}"><span class="material-symbols-outlined">palette</span></div>`;
-
-    card.innerHTML = `
-      ${preview}
-      ${placeholder}
+    card.innerHTML = `${preview}${placeholder}
       <div class="theme-info">
         <div class="theme-info-top">
           <div class="theme-meta">
@@ -1060,41 +772,31 @@ function renderThemes() {
           </div>
         </div>
         <button class="btn-tonal download-btn" style="width:100%;justify-content:center;">
-          <span class="material-symbols-outlined">download</span>
-          Download
+          <span class="material-symbols-outlined">download</span>Download
         </button>
-      </div>
-    `;
-
+      </div>`;
     card.querySelector('.download-btn').addEventListener('click', () => {
       const btn = card.querySelector('.download-btn');
       btn.disabled = true;
       btn.innerHTML = `<span class="material-symbols-outlined spin">progress_activity</span> Downloading…`;
-      fetch(t.download)
-        .then(r => r.blob())
-        .then(blob => {
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = t.name.replace(/\s+/g, '-').toLowerCase() + '.css';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-          showToast('Downloaded ' + t.name);
-          btn.disabled = false;
-          btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
-        })
-        .catch(() => {
-          showToast('Download failed — try again');
-          btn.disabled = false;
-          btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
-        });
+      fetch(t.download).then(r => r.blob()).then(blob => {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = t.name.replace(/\s+/g, '-').toLowerCase() + '.css';
+        document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+        showToast('Downloaded ' + t.name);
+        btn.disabled = false;
+        btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
+      }).catch(() => {
+        showToast('Download failed — try again');
+        btn.disabled = false;
+        btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
+      });
     });
-
     grid.appendChild(card);
   });
-
   content.innerHTML = '';
   content.appendChild(grid);
 }
@@ -1103,21 +805,16 @@ let mobileRecentFilter = 'all';
 
 function renderMobileRecent() {
   const query = searchInput.value.toLowerCase();
-
   const recentPlugins = allPlugins.slice(-4).reverse().filter(p =>
     (p.name + ' ' + (p.author || '') + ' ' + (p.description || '')).toLowerCase().includes(query)
   );
-
   const recentThemes = allThemesBySource.map(s => s.themes.slice(-1)).flat().filter(t =>
     (t.name + ' ' + (t.author || '')).toLowerCase().includes(query)
   );
-
   const showPlugins = mobileRecentFilter === 'all' || mobileRecentFilter === 'plugins';
-  const showThemes = mobileRecentFilter === 'all' || mobileRecentFilter === 'themes';
-
+  const showThemes  = mobileRecentFilter === 'all' || mobileRecentFilter === 'themes';
   const total = (showPlugins ? recentPlugins.length : 0) + (showThemes ? recentThemes.length : 0);
   resultCount.textContent = total + ' recent';
-
   content.innerHTML = '';
 
   const toggle = document.createElement('div');
@@ -1125,12 +822,10 @@ function renderMobileRecent() {
   ['all', 'plugins', 'themes'].forEach(f => {
     const btn = document.createElement('button');
     btn.textContent = f.charAt(0).toUpperCase() + f.slice(1);
-    btn.style.cssText = `height:32px;padding:0 16px;border-radius:100px;border:1px solid var(--md-outline-variant);background:${mobileRecentFilter === f ? 'var(--md-secondary-container)' : 'transparent'};color:${mobileRecentFilter === f ? 'var(--md-on-primary-container)' : 'var(--md-on-surface-variant)'};font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;transition:background 0.15s;`;
+    btn.style.cssText = `height:32px;padding:0 16px;border-radius:100px;border:1px solid var(--md-outline-variant);background:${mobileRecentFilter===f?'var(--md-secondary-container)':'transparent'};color:${mobileRecentFilter===f?'var(--md-on-primary-container)':'var(--md-on-surface-variant)'};font-family:inherit;font-size:13px;font-weight:500;cursor:pointer;`;
     btn.addEventListener('click', () => {
       mobileRecentFilter = f;
-      if (f === 'plugins') searchInput.placeholder = 'Search plugins, authors, descriptions…';
-      else if (f === 'themes') searchInput.placeholder = 'Search themes or authors…';
-      else searchInput.placeholder = 'Search plugins or themes, authors, descriptions…';
+      searchInput.placeholder = f==='plugins' ? 'Search plugins, authors, descriptions…' : f==='themes' ? 'Search themes or authors…' : 'Search plugins or themes, authors, descriptions…';
       renderMobileRecent();
     });
     toggle.appendChild(btn);
@@ -1146,11 +841,10 @@ function renderMobileRecent() {
   }
 
   if (showPlugins && recentPlugins.length > 0) {
-    const heading = document.createElement('div');
-    heading.style.cssText = 'font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--md-on-surface-variant);padding:0 0 8px;';
-    heading.textContent = 'Plugins';
-    content.appendChild(heading);
-
+    const h = document.createElement('div');
+    h.style.cssText = 'font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--md-on-surface-variant);padding:0 0 8px;';
+    h.textContent = 'Plugins';
+    content.appendChild(h);
     const grid = document.createElement('div');
     grid.className = 'plugin-grid';
     recentPlugins.forEach(p => grid.appendChild(buildPluginCard(p)));
@@ -1158,29 +852,23 @@ function renderMobileRecent() {
   }
 
   if (showThemes && recentThemes.length > 0) {
-    const heading = document.createElement('div');
-    heading.style.cssText = 'font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--md-on-surface-variant);padding:16px 0 8px;';
-    heading.textContent = 'Themes';
-    content.appendChild(heading);
-
+    const h = document.createElement('div');
+    h.style.cssText = 'font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.08em;color:var(--md-on-surface-variant);padding:16px 0 8px;';
+    h.textContent = 'Themes';
+    content.appendChild(h);
     const grid = document.createElement('div');
     grid.className = 'theme-grid';
     recentThemes.forEach(t => {
       const card = document.createElement('div');
       card.className = 'theme-card';
-      const preview = t.preview
-        ? `<img class="theme-preview" src="${escHtml(t.preview)}" alt="${escHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">`
-        : '';
-      const placeholder = `<div class="theme-preview-placeholder" style="${t.preview ? 'display:none' : ''}"><span class="material-symbols-outlined">palette</span></div>`;
-      card.innerHTML = `
-        ${preview}${placeholder}
+      const preview = t.preview ? `<img class="theme-preview" src="${escHtml(t.preview)}" alt="${escHtml(t.name)}" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">` : '';
+      const placeholder = `<div class="theme-preview-placeholder" style="${t.preview?'display:none':''}"><span class="material-symbols-outlined">palette</span></div>`;
+      card.innerHTML = `${preview}${placeholder}
         <div class="theme-info">
-          <div class="theme-info-top">
-            <div class="theme-meta">
-              <div class="theme-name">${escHtml(t.name)}</div>
-              <div class="theme-author">by ${escHtml(t.author || 'Unknown')}</div>
-            </div>
-          </div>
+          <div class="theme-info-top"><div class="theme-meta">
+            <div class="theme-name">${escHtml(t.name)}</div>
+            <div class="theme-author">by ${escHtml(t.author||'Unknown')}</div>
+          </div></div>
           <button class="btn-tonal download-btn" style="width:100%;justify-content:center;">
             <span class="material-symbols-outlined">download</span>Download
           </button>
@@ -1189,26 +877,21 @@ function renderMobileRecent() {
         const btn = card.querySelector('.download-btn');
         btn.disabled = true;
         btn.innerHTML = `<span class="material-symbols-outlined spin">progress_activity</span> Downloading…`;
-        fetch(t.download)
-          .then(r => r.blob())
-          .then(blob => {
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = t.name.replace(/\s+/g, '-').toLowerCase() + '.css';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            showToast('Downloaded ' + t.name);
-            btn.disabled = false;
-            btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
-          })
-          .catch(() => {
-            showToast('Download failed — try again');
-            btn.disabled = false;
-            btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
-          });
+        fetch(t.download).then(r => r.blob()).then(blob => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = t.name.replace(/\s+/g,'-').toLowerCase()+'.css';
+          document.body.appendChild(a); a.click(); document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          showToast('Downloaded '+t.name);
+          btn.disabled = false;
+          btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
+        }).catch(() => {
+          showToast('Download failed — try again');
+          btn.disabled = false;
+          btn.innerHTML = `<span class="material-symbols-outlined">download</span> Download`;
+        });
       });
       grid.appendChild(card);
     });
@@ -1217,23 +900,12 @@ function renderMobileRecent() {
 }
 
 function escHtml(str) {
-  return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  return String(str||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
 function refetchRepo() {
-  if (activeSection === 'themes') {
-    content.innerHTML = `<div class="loading-state">
-      <span class="material-symbols-outlined spin">progress_activity</span>
-      <p>Fetching themes…</p>
-    </div>`;
-  } else {
-    content.innerHTML = `<div class="loading-state">
-      <span class="material-symbols-outlined spin">progress_activity</span>
-      <p>Fetching plugins…</p>
-    </div>`;
-  }
+  content.innerHTML = `<div class="loading-state"><span class="material-symbols-outlined spin">progress_activity</span><p>Fetching ${activeSection === 'themes' ? 'themes' : 'plugins'}…</p></div>`;
   resultCount.textContent = 'Loading…';
-
   const icon = document.getElementById('refresh-icon');
   icon.classList.add('spin');
 
@@ -1246,10 +918,7 @@ function refetchRepo() {
     })
     .catch(() => {
       if (activeSection === 'plugins') {
-        content.innerHTML = `<div class="error-state">
-          <span class="material-symbols-outlined">cloud_off</span>
-          <p>Couldn't reach the plugin repo.<br>Check your connection and try again.</p>
-        </div>`;
+        content.innerHTML = `<div class="error-state"><span class="material-symbols-outlined">cloud_off</span><p>Couldn't reach the plugin repo.<br>Check your connection and try again.</p></div>`;
         resultCount.textContent = 'Error';
       }
     });
@@ -1258,11 +927,8 @@ function refetchRepo() {
     .then(r => r.json())
     .then(async registry => {
       const sources = registry.sources || [];
-      const results = await Promise.allSettled(
-        sources.map(s => fetch(s.url).then(r => r.json()))
-      );
-      allThemes = [];
-      allThemesBySource = [];
+      const results = await Promise.allSettled(sources.map(s => fetch(s.url).then(r => r.json())));
+      allThemes = []; allThemesBySource = [];
       results.forEach(r => {
         if (r.status === 'fulfilled') {
           const themes = r.value.themes || [];
@@ -1277,10 +943,7 @@ function refetchRepo() {
     .catch(() => {
       icon.classList.remove('spin');
       if (activeSection === 'themes') {
-        content.innerHTML = `<div class="error-state">
-          <span class="material-symbols-outlined">cloud_off</span>
-          <p>Couldn't reach the themes registry.<br>Check your connection and try again.</p>
-        </div>`;
+        content.innerHTML = `<div class="error-state"><span class="material-symbols-outlined">cloud_off</span><p>Couldn't reach the themes registry.<br>Check your connection and try again.</p></div>`;
         resultCount.textContent = 'Error';
       }
     });
