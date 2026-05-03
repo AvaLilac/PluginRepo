@@ -479,7 +479,7 @@
 </div>
 
 <script>
-const OFFICIAL_REPO_URL = "https://avalilac.github.io/PluginRepo/pluginrepobackend.js";
+const OFFICIAL_REPO_URL = "https://raw.githubusercontent.com/AvaLilac/PluginRepo/refs/heads/main/pluginrepobackend.js";
 const THEMES_REGISTRY_URL = "https://raw.githubusercontent.com/AvaLilac/PluginRepo/refs/heads/main/themebackend/themerepobackend.js";
 
 let allPlugins = [];
@@ -509,6 +509,7 @@ const ICON_ALIASES = {
  * 1. If the backend supplies an icon, use it — but run it through ICON_ALIASES
  *    first to fix any known-broken names.
  * 2. Otherwise fall back to keyword matching on name + description.
+ * Also forgot to add, This is still a work in progress. and is still not completely reliable
  */
 function getIconForPlugin(p) {
   if (p.icon) {
