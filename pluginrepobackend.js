@@ -244,6 +244,34 @@
       "link": "https://codeberg.org/api/v1/repos/Amelinyaa/aviaStuff/raw/plugins/File_Syntaxer.js",
       "description": "Adds syntax highlighting to embedded files",
       "icon": "code"
+    },
+    {
+      "name": "Echo",
+      "author": "AvaLilac#7432",
+      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/Echo.js",
+      "description": "Replaces the search messages bar with a button that opens the Search Bar on click",
+      "icon": "search"
+    },
+    {
+      "name": "KickMembersFromGC",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/KickMembersFromGC.js",
+      "description": "Adds a context menu button to kick members from group chats, WARNING: This plugin contains a token grabber because your token is required to kick members from group chats. You can read through the code to verify that it is safe, or if you still don't feel comfortable with it just don't use the plugin .Also note that the button will not show if you click onto a group chat as soon as you load into stoat. If you do that, scroll up in the channel to load more messages, then it should show.",
+      "icon": "person_remove"
+    },
+    {
+      "name": "SilentLeaveGCs",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/SilentLeaveGCs.js",
+      "description": "Allows you to leave group chats silently (without notifying other members)",
+      "icon": "logout"
+    },
+    {
+      "name": "Horizontal Sever Bar",
+      "author": "",
+      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/Horizontal_Server_Bar.js",
+      "description": "Changes The Server Bar To Be Horizontal On The Top. DESKTOP ONLY",
+      "icon": "view_headline"
     }
   ]
 }
