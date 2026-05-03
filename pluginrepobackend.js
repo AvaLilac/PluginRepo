@@ -268,7 +268,7 @@
     },
     {
       "name": "Horizontal Sever Bar",
-      "author": "",
+      "author": "AvaLilac#7432",
       "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/Horizontal_Server_Bar.js",
       "description": "Changes The Server Bar To Be Horizontal On The Top. DESKTOP ONLY",
       "icon": "view_headline"
