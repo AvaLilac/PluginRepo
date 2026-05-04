@@ -36,13 +36,6 @@
       "icon": "keyboard"
     },
     {
-      "name": "ForceEmojiPack",
-      "author": "0simp#2291",
-      "link": "https://raw.githubusercontent.com/0simp/ForceEmojiPack/refs/heads/main/ForceEmojiPack.js",
-      "description": "Forces emojis in embeds and message reactions to use your selected emoji pack",
-      "icon": "emoji_emotions"
-    },
-    {
       "name": "AppleEmojiPack",
       "author": "AvaLilac#7432",
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/AppleEmoji.js",
@@ -153,13 +146,6 @@
       "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/ChunkyMembers.js",
       "description": "Makes the member and pinned message lists cover the chat entirely. I recommend combining it with the following css found inside the AviaClient Server",
       "icon": "people"
-    },
-    {
-      "name": "GifFix",
-      "author": "0simp#2291",
-      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/GifFix.js",
-      "description": "Fixes gifs and animated emojis not animating when they should",
-      "icon": "gif_box"
     },
     {
       "name": "StoatDupeFix",
