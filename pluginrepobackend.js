@@ -57,13 +57,6 @@
       "icon": "home"
     },
     {
-      "name": "Userbadges",
-      "author": "AvaLilac#7432",
-      "link": "https://raw.githubusercontent.com/AvaLilac/AviaClientBadges/refs/heads/main/userbadges.js",
-      "description": "Plugin loads custom badges AvaLilac Puts in the backend on any user",
-      "icon": "manage_accounts"
-    },
-    {
       "name": "CopyAttachmentLink",
       "author": "0simp#2291",
       "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/CopyAttachmentLink.js",
@@ -258,6 +251,13 @@
       "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/Horizontal_Server_Bar.js",
       "description": "Changes The Server Bar To Be Horizontal On The Top. DESKTOP ONLY",
       "icon": "view_headline"
+    },
+    {
+      "name": "UserbadgesV2",
+      "author": "AvaLilac#7432",
+      "link": "https://raw.githubusercontent.com/AvaLilac/AviaClientBadges/refs/heads/main/userbadgesV2.js",
+      "description": "Plugin loads custom badges AvaLilac Puts in the backend on any user",
+      "icon": "manage_accounts"
     }
   ]
 }
