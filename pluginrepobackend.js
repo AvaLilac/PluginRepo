@@ -232,13 +232,6 @@
       "icon": "search"
     },
     {
-      "name": "KickMembersFromGC",
-      "author": "0simp#2291",
-      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/KickMembersFromGC.js",
-      "description": "Adds a context menu button to kick members from group chats, WARNING: This plugin contains a token grabber because your token is required to kick members from group chats. You can read through the code to verify that it is safe, or if you still don't feel comfortable with it just don't use the plugin .Also note that the button will not show if you click onto a group chat as soon as you load into stoat. If you do that, scroll up in the channel to load more messages, then it should show.",
-      "icon": "person_remove"
-    },
-    {
       "name": "SilentLeaveGCs",
       "author": "0simp#2291",
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/SilentLeaveGCs.js",
@@ -258,6 +251,13 @@
       "link": "https://raw.githubusercontent.com/AvaLilac/AviaClientBadges/refs/heads/main/userbadgesV2.js",
       "description": "Plugin loads custom badges AvaLilac Puts in the backend on any user",
       "icon": "manage_accounts"
+    },
+    {
+      "name": "Klipy Gifs",
+      "author": "AvaLilac#7432",
+      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/KLIPY_GIFS.js",
+      "description": "Replaces the funtion of the built in gif picker using Klipy gifs and intergration with the Favorites panel to easily add to favorites by clicking the star on the top right of the gif, even if klipy gets merged in the offical client, i still find this looks better and will still be better",
+      "icon": "gif_box"
     }
   ]
 }
