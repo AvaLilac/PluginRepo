@@ -256,7 +256,7 @@
       "name": "Klipy Gifs",
       "author": "AvaLilac#7432",
       "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/KLIPY_GIFS.js",
-      "description": "Replaces the funtion of the built in gif picker using Klipy gifs and intergration with the Favorites panel to easily add to favorites by clicking the star on the top right of the gif, even if klipy gets merged in the offical client, i still find this looks better and will still be better",
+      "description": "Replaces the funtion of the built in gif picker using Klipy gifs and intergration with the Favorites panel to easily add to favorites by clicking the star on the top right of the gif, even if klipy gets merged in the offical client, i still find this looks better and will still be better, You need to have your own Klipy API key to use this plugin, Which is free. please visit https://klipy.com/",
       "icon": "gif_box"
     }
   ]
