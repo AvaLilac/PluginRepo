@@ -258,6 +258,19 @@
       "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/KLIPY_GIFS.js",
       "description": "Replaces the funtion of the built in gif picker using Klipy gifs and intergration with the Favorites panel to easily add to favorites by clicking the star on the top right of the gif, even if klipy gets merged in the offical client, i still find this looks better and will still be better, You need to have your own Klipy API key to use this plugin, Which is free. please visit https://klipy.com/",
       "icon": "gif_box"
+    },
+    {
+      "name": "CopyRoleID",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/CopyRoleId.js",
+      "description": "Makes it possible to copy role ids without needing the manage roles permission. Note that the member list for each server needs to be loaded in order for this plugin to work, so if you try to copy a role's id and see text that says ''Couldn't copy role id'' briefly open the member list then try again. To use simply press the ''copy role id'' button in the user roles modal"
+    },
+    {
+      "name": "BAN_LIST",
+      "author": "AvaLilac#7432",
+      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/BAN_LIST.js",
+      "description": "Fetches and displays your server's full ban list in a readable format. View it directly in the panel, Copy it to clipboard or download it as a .txt file.",
+      "icon": "block"
     }
   ]
 }
