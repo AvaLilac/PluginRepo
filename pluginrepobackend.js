@@ -271,6 +271,34 @@
       "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/BAN_LIST.js",
       "description": "Fetches and displays your server's full ban list in a readable format. View it directly in the panel, Copy it to clipboard or download it as a .txt file.",
       "icon": "block"
+    },
+    {
+      "name": "StoatImageFix",
+      "author": "0simp#2291",
+      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/StoatImageFix.js",
+      "description": "Fixes images hosted on cdn.stoatusercontent.com not embedding",
+      "icon": "image"
+    },
+    {
+      "name": "EditEmojis",
+      "author": "0simp#2291",
+      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/EditEmojis.js",
+      "description": "Adds client side support for renaming emojis. Note that even if the emoji is successfully renamed, the new name will not show up client side until you refresh. This is a stoat issue that I don't think I can do anything about",
+      "icon": "emoji_emotions"
+    },
+    {
+      "name": "Favorite Status's",
+      "author": "AvaLilac#7432",
+      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/fav_status.js",
+      "description": "Adds the ability to favorite Status's so you can reuse them later",
+      "icon": "manage_accounts"
+    },
+    {
+      "name": "timeout",
+      "author": "0simp#2291",
+      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/timeout.js",
+      "description": "Adds a button for adding and removing timeouts from members. Note that the timeout button gets added if either the ban or kick buttons are present in the member context menu, therefore it may incorrectly get added if you have permission to either ban or kick, but not timeout or it may incorrectly not get added if you have permission to timeout, but not ban or kick.",
+      "icon": "block"
     }
   ]
 }
