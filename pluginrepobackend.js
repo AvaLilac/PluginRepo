@@ -67,7 +67,7 @@
       "name": "BetterFavourites",
       "author": "0simp#2291",
       "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/BetterFavourites.js",
-      "description": "Improves avia's built in favourites system by adding a button to the image viewer to add the image to favourites, a refresh button to the favourites panel (click to make images/gifs added via the add favourites button show up) and making clicking on an image/gif put the link into the chat bar instead of copying it to the clipboard. This plugin is just a combination of AddToFavourites,FavsToChat and a new refresh button.",
+      "description": "Improves avia's built in favourites system by adding a button to the image viewer to add the image to favourites, a refresh button to the favourites panel (click to make images/gifs added via the add favourites button show up) and making clicking on an image/gif put the link into the chat bar instead of copying it to the clipboard.",
       "icon": "bookmark"
     },
     {
@@ -83,13 +83,6 @@
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/masquerade.js",
       "description": "Exactly what the name says. Allows you to change your pfp/avatar before sending a message without modifying your profile. has the ability to impersonate anyone by clicking onto their profile, clicking the 3 dots. Then clicking impersonate.",
       "icon": "theater_comedy"
-    },
-    {
-      "name": "FavsToChat",
-      "author": "0simp#2291",
-      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/FavsToChat.js",
-      "description": "Makes clicking an image/gif in the favourites panel put the link in the chat bar instead of copying it to the clipboard",
-      "icon": "bookmark"
     },
     {
       "name": "Gradient roles",
@@ -111,13 +104,6 @@
       "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/EmojiSounds.js",
       "description": "Allows you to set sounds to be played when certain emojis are sent in chat. After enabling the plugin, go into your user settings and click on the button that says '(Avia) Emoji Sounds Settings'. Then, paste the emoji and the direct link to the sound you want in the appropriate boxes.",
       "icon": "volume_up"
-    },
-    {
-      "name": "Devtools",
-      "author": "AvaLilac#7432",
-      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/ConsoleDevTools.js",
-      "description": "Get Full access to the browsers devtools console inside AviaClientDesktop \"works on web\"",
-      "icon": "developer_mode"
     },
     {
       "name": "NoBlockedMessages",
@@ -211,13 +197,6 @@
       "icon": "cloud"
     },
     {
-      "name": "Whisper",
-      "author": "AvaLilac#7432",
-      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/Whisper.js",
-      "description": "Moves call button from the giant banner into the top toolbar within DMs",
-      "icon": "phone"
-    },
-    {
       "name": "File Syntaxer",
       "author": "Amelia#2716",
       "link": "https://codeberg.org/api/v1/repos/Amelinyaa/aviaStuff/raw/plugins/File_Syntaxer.js",
@@ -244,13 +223,6 @@
       "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/Horizontal_Server_Bar.js",
       "description": "Changes The Server Bar To Be Horizontal On The Top. DESKTOP ONLY",
       "icon": "view_headline"
-    },
-    {
-      "name": "UserbadgesV2",
-      "author": "AvaLilac#7432",
-      "link": "https://raw.githubusercontent.com/AvaLilac/AviaClientBadges/refs/heads/main/userbadgesV2.js",
-      "description": "Plugin loads custom badges AvaLilac Puts in the backend on any user",
-      "icon": "manage_accounts"
     },
     {
       "name": "Klipy Gifs",
@@ -299,6 +271,27 @@
       "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/timeout.js",
       "description": "Adds a button for adding and removing timeouts from members. Note that the timeout button gets added if either the ban or kick buttons are present in the member context menu, therefore it may incorrectly get added if you have permission to either ban or kick, but not timeout or it may incorrectly not get added if you have permission to timeout, but not ban or kick.",
       "icon": "block"
+    },
+    {
+      "name": "ClickSounds",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/ClickSounds.js",
+      "description": "lays a sound effect whenever you click on a button. ",
+      "icon": "volume_up"
+    },
+    {
+      "name": "BetterImageViewer",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/BetterImageViewer.js",
+      "description": "Improves stoat's image viewer by adding a button to view the image in a new tab. Also fixes the bar thing with all the buttons on it going off the screen on phones",
+      "icon": "image"
+    },
+    {
+      "name": "BetterDownloadButton",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/BetterDownloadButton.js",
+      "description": "Prevents download buttons from opening new tabs",
+      "icon": "download"
     }
   ]
 }
