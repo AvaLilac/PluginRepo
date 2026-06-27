@@ -298,7 +298,7 @@
       "author": "0simp#2291",
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/AnimateServerIcons.js",
       "description": "Adds client side support for rendering animated server icons",
-      "icon": "image"
+      "icon": "animated_images"
     }
   ]
 }
