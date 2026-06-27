@@ -92,13 +92,6 @@
       "icon": "gradient"
     },
     {
-      "name": "Headliner",
-      "author": "AvaLilac#7432",
-      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/headliner.js",
-      "description": "DESKTOP ONLY. The Plugin version of the headliner CSS.Found In Desktop settings. You can modify Its settings by just clicking that gear icon on the button",
-      "icon": "wallpaper"
-    },
-    {
       "name": "EmojiSounds",
       "author": "0simp#2291",
       "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/EmojiSounds.js",
@@ -116,7 +109,7 @@
       "name": "NoSmoothScroll",
       "author": "AvaLilac#7432",
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/NoSmoothScroll.js",
-      "description": "Completely hides the messages from showing",
+      "description": "Disables Smooth Scroll in the client",
       "icon": "swap_vert"
     },
     {
@@ -292,6 +285,20 @@
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/BetterDownloadButton.js",
       "description": "Prevents download buttons from opening new tabs",
       "icon": "download"
+    },
+    {
+      "name": "WebhookProfiles",
+      "author": "0simp#2291",
+      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/WebhookProfiles.js",
+      "description": "Gives webhooks profile popups just like regular users. The main reason you'd want this is to view its pfp in higher quality and/or download it.",
+      "icon": "webhook"
+    },
+    {
+      "name": "AnimateServerIcons",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/AnimateServerIcons.js",
+      "description": "Adds client side support for rendering animated server icons",
+      "icon": "image"
     }
   ]
 }
