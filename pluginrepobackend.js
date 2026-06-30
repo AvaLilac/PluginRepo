@@ -299,6 +299,13 @@
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/AnimateServerIcons.js",
       "description": "Adds client side support for rendering animated server icons",
       "icon": "animated_images"
+    },
+    {
+      "name": "Unsent Messages Toolbar",
+      "author": "AvaLilac#7432",
+      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/UNSENT_MESSAGE_TOOLBAR.js",
+      "description": "Injects a toolbar into stoat for unsent messages that allow you to use the same functions found in right click. Inside of the toolbar so you dont have to right click",
+      "icon": "toolbar"
     }
   ]
 }
