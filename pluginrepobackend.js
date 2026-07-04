@@ -192,7 +192,7 @@
     {
       "name": "File Syntaxer",
       "author": "Amelia#2716",
-      "link": "https://codeberg.org/api/v1/repos/Amelinyaa/aviaStuff/raw/plugins/File_Syntaxer.js",
+      "link": "https://codeberg.org/api/v1/repos/Amelinyaa/aviaStuff/raw/plugins/dist/File_Syntaxer.js",
       "description": "Adds syntax highlighting to embedded files",
       "icon": "code"
     },
