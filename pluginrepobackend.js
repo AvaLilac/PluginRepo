@@ -294,10 +294,10 @@
       "icon": "webhook"
     },
     {
-      "name": "AnimateServerIcons",
+      "name": "AnimateIcons",
       "author": "0simp#2291",
-      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/AnimateServerIcons.js",
-      "description": "Adds client side support for rendering animated server icons",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/AnimateIcons.js",
+      "description": "Adds client side support for rendering animated icons",
       "icon": "animated_images"
     },
     {
