@@ -306,6 +306,27 @@
       "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/UNSENT_MESSAGE_TOOLBAR.js",
       "description": "Injects a toolbar into stoat for unsent messages that allow you to use the same functions found in right click. Inside of the toolbar so you dont have to right click",
       "icon": "toolbar"
+    },
+    {
+      "name": "CopyFileContents",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/CopyFileContents.js",
+      "description": "Adds a button to text file attachments to copy their contents",
+      "icon": "copy"
+    },
+    {
+      "name": "ColouredText",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/ColouredText.js",
+      "description": "Adds a ui to make typing coloured text easier",
+      "icon": "format_color_text"
+    },
+    {
+      "name": "Better Statuses",
+      "author": "0simp#2291",
+      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/BetterStatuses.js",
+      "description": "Fixes custom emojis not rendering in the status card and adds the ability to reply to people's statuses",
+      "icon": "mark_chat_read"
     }
   ]
 }
