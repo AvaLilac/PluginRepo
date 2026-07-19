@@ -1,7 +1,7 @@
 {
   "plugins": [
     {
-      "name": "WriteUpperCase",
+      "name": "Auto Capitalize",
       "author": "AvaLilac#7432",
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/WriteUpperCase.js",
       "description": " Auto-capitalizes sentences while you type.",
