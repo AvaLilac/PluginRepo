@@ -3,7 +3,7 @@
     {
       "name": "WriteUpperCase",
       "author": "AvaLilac#7432",
-      "link": "https://cdn.jsdelivr.net/gh/AvaLilac/Ava-s-AviaClient-Plugins@refs/heads/main/WriteUpperCase.js",
+      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/WriteUpperCase.js",
       "description": " Auto-capitalizes sentences while you type.",
       "icon": "spellcheck"
     },
