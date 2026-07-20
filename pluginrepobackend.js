@@ -218,13 +218,6 @@
       "icon": "view_headline"
     },
     {
-      "name": "Klipy Gifs",
-      "author": "AvaLilac#7432",
-      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/KLIPY_GIFS.js",
-      "description": "Replaces the funtion of the built in gif picker using Klipy gifs and intergration with the Favorites panel to easily add to favorites by clicking the star on the top right of the gif, even if klipy gets merged in the offical client, i still find this looks better and will still be better, You need to have your own Klipy API key to use this plugin, Which is free. please visit https://klipy.com/",
-      "icon": "gif_box"
-    },
-    {
       "name": "CopyRoleID",
       "author": "0simp#2291",
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/CopyRoleId.js",
@@ -327,6 +320,13 @@
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/BetterStatuses.js",
       "description": "Fixes custom emojis not rendering in the status card and adds the ability to reply to people's statuses",
       "icon": "mark_chat_read"
+    },
+    {
+      "name": "KlipyV2",
+      "author": "AvaLilac#7432",
+      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/KlipyV2.js",
+      "description": "Replaces Stoat's built in GIF provider with Klipy by using the native GIF picker with Klipy's API. Also adds a favorite button to every GIF card so you can easily favorite GIFs. Requires a free Klipy API key.",
+      "icon": "gif_box"
     }
   ]
 }
