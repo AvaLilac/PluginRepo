@@ -327,6 +327,13 @@
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/KlipyV2.js",
       "description": "Replaces Stoat's built in GIF provider with Klipy by using the native GIF picker with Klipy's API. Also adds a favorite button to every GIF card so you can easily favorite GIFs. Requires a free Klipy API key.",
       "icon": "gif_box"
+    },
+    {
+      "name": "Pronoun Colours",
+      "author": "Amelia#2716",
+      "link": "https://codeberg.org/Amelinyaa/aviaStuff/plugins/dist/Pronoun_Colours.js",
+      "description": "Colours users' pronouns with chat messages.",
+      "icon": "colorize"
     }
   ]
 }
