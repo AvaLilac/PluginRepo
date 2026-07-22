@@ -305,7 +305,7 @@
       "author": "0simp#2291",
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/CopyFileContents.js",
       "description": "Adds a button to text file attachments to copy their contents",
-      "icon": "copy"
+      "icon": "content_copy"
     },
     {
       "name": "ColouredText",
