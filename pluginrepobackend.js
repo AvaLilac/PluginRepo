@@ -143,7 +143,7 @@
     {
       "name": "TimezoneV2",
       "author": "AvaLilac#7432",
-      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/timezonesV2",
+      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/timezonesV2.js",
       "description": "Now set custom time zones! V2 Now including PerUser Time zones.  You can also disable Global Time zone and just have PerUser",
       "icon": "schedule"
     },
