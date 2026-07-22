@@ -10,7 +10,7 @@
     },
     {
       "name": "Amelia's Themes",
-      "url": "https://codeberg.org/api/v1/repos/Amelinyaa/aviaStuff/raw/themesbackend.js"
+      "url": "https://codeberg.org/api/v1/repos/Amelinyaa/aviaStuff/raw/themesbackend.json"
     }
   ]
 }
