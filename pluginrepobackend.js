@@ -331,7 +331,7 @@
     {
       "name": "Pronoun Colours",
       "author": "Amelia#2716",
-      "link": "https://codeberg.org/Amelinyaa/aviaStuff/plugins/dist/Pronoun_Colours.js",
+      "link": "https://codeberg.org/Amelinyaa/aviaStuff/raw/branch/main/plugins/dist/Pronoun_colours.js",
       "description": "Colours users' pronouns with chat messages.",
       "icon": "colorize"
     }
