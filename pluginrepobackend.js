@@ -22,20 +22,6 @@
       "icon": "translate"
     },
     {
-      "name": "Timezones",
-      "author": "AvaLilac#7432",
-      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/timezones.js",
-      "description": "Now set custom timezones!",
-      "icon": "schedule"
-    },
-    {
-      "name": "CtrlEnterSend",
-      "author": "AvaLilac#7432",
-      "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/CtrlEnterSend.js",
-      "description": "Sends message only when you press CtrlEnter And creates a new line when you press enter",
-      "icon": "keyboard"
-    },
-    {
       "name": "AppleEmojiPack",
       "author": "AvaLilac#7432",
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/AppleEmoji.js",
@@ -90,13 +76,6 @@
       "link": "https://raw.githubusercontent.com/AvaLilac/Ava-s-AviaClient-Plugins/refs/heads/main/GradientRoles.js",
       "description": "Create Roles with gradients or modify existing roles to add gradients    WARNING THIS IS A TOKEN GRABBER When creating roles you need to provide your user token or else you aren't able to create a role THIS plugin grabs the token for you so you dont have to grab it every time.    If you do not feel comfortable Using this plugin because it grabs your token. Then you can either look through the code itself as its open source. Or just don't use it in general",
       "icon": "gradient"
-    },
-    {
-      "name": "EmojiSounds",
-      "author": "0simp#2291",
-      "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/EmojiSounds.js",
-      "description": "Allows you to set sounds to be played when certain emojis are sent in chat. After enabling the plugin, go into your user settings and click on the button that says '(Avia) Emoji Sounds Settings'. Then, paste the emoji and the direct link to the sound you want in the appropriate boxes.",
-      "icon": "volume_up"
     },
     {
       "name": "NoBlockedMessages",
@@ -158,7 +137,7 @@
       "name": "Copy to clipboard",
       "author": "AvaLilac#7432",
       "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/copytoclipboard.js",
-      "description": "Copy images to clipboard",
+      "description": "Copy images to clipboard (This plugin is broken. Ava has not gotten around to fixing it. it will be fixed soon)",
       "icon": "paste"
     },
     {
@@ -211,13 +190,6 @@
       "icon": "logout"
     },
     {
-      "name": "Horizontal Sever Bar",
-      "author": "AvaLilac#7432",
-      "link": "https://codeberg.org/AvaLilac/Ava-s-AviaClient-Plugins/raw/branch/main/Horizontal_Server_Bar.js",
-      "description": "Changes The Server Bar To Be Horizontal On The Top. DESKTOP ONLY",
-      "icon": "view_headline"
-    },
-    {
       "name": "CopyRoleID",
       "author": "0simp#2291",
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/CopyRoleId.js",
@@ -257,13 +229,6 @@
       "link": "https://raw.githubusercontent.com/0simp/AviaPlugins/refs/heads/main/timeout.js",
       "description": "Adds a button for adding and removing timeouts from members. Note that the timeout button gets added if either the ban or kick buttons are present in the member context menu, therefore it may incorrectly get added if you have permission to either ban or kick, but not timeout or it may incorrectly not get added if you have permission to timeout, but not ban or kick.",
       "icon": "block"
-    },
-    {
-      "name": "ClickSounds",
-      "author": "0simp#2291",
-      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/ClickSounds.js",
-      "description": "lays a sound effect whenever you click on a button. ",
-      "icon": "volume_up"
     },
     {
       "name": "BetterImageViewer",
