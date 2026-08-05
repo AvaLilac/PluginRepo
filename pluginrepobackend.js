@@ -299,6 +299,13 @@
       "link": "https://codeberg.org/Amelinyaa/aviaStuff/raw/branch/main/plugins/dist/Pronoun_colours.js",
       "description": "Colours users' pronouns within chat messages.",
       "icon": "colorize"
+    },
+    {
+      "name": "Reload",
+      "author": "Amelia#2716",
+      "link": "https://codeberg.org/Amelinyaa/aviaStuff/src/branch/main/plugins/dist/Reload.js",
+      "description": "Reloads the page if it loads incorrectly.",
+      "icon": "refresh"
     }
   ]
 }
