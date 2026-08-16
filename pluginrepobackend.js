@@ -231,13 +231,6 @@
       "icon": "block"
     },
     {
-      "name": "BetterImageViewer",
-      "author": "0simp#2291",
-      "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/BetterImageViewer.js",
-      "description": "Improves stoat's image viewer by adding a button to view the image in a new tab. Also fixes the bar thing with all the buttons on it going off the screen on phones",
-      "icon": "image"
-    },
-    {
       "name": "BetterDownloadButton",
       "author": "0simp#2291",
       "link": "https://codeberg.org/0simp/AviaPlugins/raw/branch/main/BetterDownloadButton.js",
